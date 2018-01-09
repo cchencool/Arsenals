@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script type="text/javascript" src="./jquery.js"></script>
+		<script type="text/javascript">
+
+			var filePath = "/Users/Chen/Desktop/data.xls";
+			var sheet_id = 1;
+			var row_start = 3;
+			try
+			{
+				var oXls = new ActiveXObject("Excel.application");
+				var oWb = oXls.Workbook.open(filePath);
+				oWb.worksheets(sheet_id).select();
+				var oSheet = oWb.ActiveSheet;
+				var colCount = oXls.worksheets(sheet_id).UsedRange.Cells.Rows.Count;
+			}
+			catch(err)
+			{
+				alert(err);
+			}
+
+
+		</script>
+	</head>
+	<body>
+		colCount : <text id="colCount"></text>
+		<text id="test">This is a test</text>
+		<text id="test">This is a test</text>
+		<text id="test">This is a test</text>
+		<script type="text/javascript">
+
+			$(function(){
+				$('#colCount').text(colCount);
+				$('#test').text("hahaha");
+				$('#test').text("hahaha");
+			});
+
+		</script>
+	</body>
+</html>
