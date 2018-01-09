@@ -13,7 +13,6 @@ public class ParallelStreamTest {
         List<Object> orderList = new ArrayList<Object>();
 
         for (int i = 0; i < 50000; i++) {
-//			orderList.add(i);
             orderList.add(String.valueOf(i));
         }
 
