@@ -1,0 +1,1 @@
+* */6 * * * . /Users/Chen/.bash_profile; sh $CHEN_SCRIPT_PATH/clean_log_tool/cleanupLogs.sh

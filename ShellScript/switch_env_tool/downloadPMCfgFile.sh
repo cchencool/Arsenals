@@ -3,6 +3,8 @@
 basepath=$(cd `dirname $0`; pwd)
 server=$1
 
+let finalResult=0
+
 function initParam()
 {
 	ip_prefix=10.110.2.
@@ -57,8 +59,10 @@ function begin()
 function getResult()
 {
 	if [ $? -eq 0 ];then
+		let finalResult=0
 		echo "success"
 	else
+		let finalResult=1
 		echo "failed"
 	fi
 }
@@ -78,18 +82,21 @@ if [ ${server} -eq 56 ];then
 elif [ ${server} -eq 57 ];then
 	begin 101 Across_pwd_001
 elif [ ${server} -eq 124 ];then
-	begin 101 acrosspm1
+	begin 121 Across_pwd_001
 elif [ ${server} -eq 158 ];then
 	begin 121 Across_pwd_001
 elif [ ${server} -eq 156 ];then
 	begin 121 acrosspm
+elif [ ${server} -eq 157 ];then
+	begin 121 Across_app@123
 elif [ ${server} -eq 102 ];then
-	begin 101 Across_pwd@2016
+	begin 121 acrosspm
 elif [ ${server} -eq 104 ];then
-	begin 112 PM_app@123
+	begin 121 PM_app@123
 elif [ ${server} -eq 106 ];then
 	begin 121 PM_app@123
 fi
 
 chAuth > /dev/null 2>&1
+exit $((finalResult))
 
