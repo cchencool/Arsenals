@@ -40,7 +40,7 @@ public class ParallelStreamTest {
 //		final List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
 //		
 //        final Optional<Integer> sum = orderList.parallelStream()
-//        		.filter((r) -> r > 40000)
+//        		.filter((r) -> r > 40000
 //                .reduce((a, b) -> a + b);
 //        
 //        int a = sum.orElseGet(() -> 0);
