@@ -15,6 +15,8 @@ import com.inspur.pm.backend.core.fileengine.FileEngineItf;
 import com.inspur.pm.backend.core.fileengine.itfimpl.FileEngineItfGen;
 import com.inspur.pm.backend.core.util.FSException;
 import com.inspur.pmv5.common.dataaccess.SqlSessionInitFactory;
+import com.inspur.pmv5.common.util.BeanUtils;
+import com.inspur.pmv5.common.util.FileUtil;
 import com.inspur.pmv5.common.util.PropertiesUtils;
 
 public class FileContentQuerier {
@@ -51,7 +53,7 @@ public class FileContentQuerier {
 		
 		if ("cfg".equalsIgnoreCase(type))
 		{
-			result = getCfgConten(fe);
+			result = getCfgConten(fe, fileName);
 		}
 		else if ("pia".equalsIgnoreCase(type)) 
 		{
@@ -72,7 +74,7 @@ public class FileContentQuerier {
 	
 	
 
-	protected String getCfgConten(FileEngineItf fe) {
+	protected String getCfgConten(FileEngineItf fe, String fileName) {
 		
 		StringBuffer sb = new StringBuffer();
 		
@@ -80,7 +82,11 @@ public class FileContentQuerier {
 		try {
 		
 			FileInputStream in;
-			in = new FileInputStream("cfg.properties");
+			if (BeanUtils.isEmpty(fileName)) {				
+				in = new FileInputStream("cfg.properties");
+			} else {
+				in = new FileInputStream(fileName);
+			}
 			properties.load(in);
 		
 			String sourceMotypeId = properties.getProperty("sourceMotypeId");
@@ -115,9 +121,19 @@ public class FileContentQuerier {
 	//		logger.info("msd ind file: ");
 			String msd_indContent = getMsdContent(fe, msd_ind, false);
 			logger.info("-----------------------------------------------------");
-			writeFile("./res_pia", pia, piaContent);
-			writeFile("./res_msd_set", msd_set, msd_setContent);
-			writeFile("./res_msd_ind", msd_ind, msd_indContent);
+			
+			if (BeanUtils.isEmpty(fileName)) {
+				writeFile("./res_pia", pia, piaContent);
+				writeFile("./res_msd_set", msd_set, msd_setContent);
+				writeFile("./res_msd_ind", msd_ind, msd_indContent);
+			} else {
+				File file = new File(fileName);
+				String path = file.getParent();
+				writeFile(path + "/res_pia", pia, piaContent);
+				writeFile(path + "/res_msd_set", msd_set, msd_setContent);
+				writeFile(path + "/res_msd_ind", msd_ind, msd_indContent);
+			}
+			
 			
 			sb.append("pia: " + pia + "\n");
 			sb.append("msd set:" + msd_set + "\n");

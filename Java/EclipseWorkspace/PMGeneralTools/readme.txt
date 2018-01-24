@@ -4,7 +4,7 @@
 # general tools by tcp requsts
 #
 # step 1. run server.
-# java -cp .:/home/acrosspm/chen/GeneralTools.jar:/opt/netwatcher/pm4h2/app/opt/hbase/lib/guava-12.0.1.jar:${PM4H_LIB}/common/main/* com.chen.tools.platform.frame.main.GeneralTools
+# nohup java -cp .:/home/acrosspm/chen/GeneralTools.jar:/opt/netwatcher/pm4h2/app/opt/hbase/lib/guava-12.0.1.jar:${PM4H_LIB}/common/main/* com.chen.tools.platform.frame.main.GeneralTools false 2>&1 &
 # 
 # step 2. send query request.
 # java -cp .:/home/acrosspm/chen/GeneralTools.jar:/opt/netwatcher/pm4h2/app/opt/hbase/lib/guava-12.0.1.jar:${PM4H_LIB}/common/main/* com.chen.tools.platform.frame.client.Client cfg
@@ -31,7 +31,8 @@ period=M15
 #
 # step2. command.
 # java -cp .:/home/acrosspm/chen/GeneralTools.jar:/opt/netwatcher/pm4h2/app/opt/hbase/lib/guava-12.0.1.jar:${PM4H_LIB}/common/main/* com.chen.tools.platform.frame.client.Client cfg
-#
+# 
+# java -cp .:/home/acrosspm/chen/GeneralTools.jar:/opt/netwatcher/pm4h2/app/opt/hbase/lib/guava-12.0.1.jar:${PM4H_LIB}/common/main/* com.chen.tools.platform.frame.client.Client cfg `pwd`/cfg.properties
 #
 # step3. check result
 # res_pia -> save pia file content.
