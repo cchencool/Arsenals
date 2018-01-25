@@ -26,3 +26,9 @@ do
 	echo $int
 	let "int++"
 done
+
+echo ${RANDOM}
+
+find ./* *.sh -type f | while read file; do
+	cat $file | sed "s/1/2/g" >> ./prog_run_result.txt;
+done

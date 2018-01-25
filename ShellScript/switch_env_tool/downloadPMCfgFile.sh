@@ -82,17 +82,17 @@ if [ ${server} -eq 56 ];then
 elif [ ${server} -eq 57 ];then
 	begin 101 Across_pwd_001
 elif [ ${server} -eq 124 ];then
-	begin 121 Across_pwd_001
+	begin 151 Across_pwd_001
 elif [ ${server} -eq 158 ];then
 	begin 121 Across_pwd_001
 elif [ ${server} -eq 156 ];then
 	begin 121 acrosspm
 elif [ ${server} -eq 157 ];then
-	begin 121 Across_app@123
+	begin 151 Across_app@123
 elif [ ${server} -eq 102 ];then
 	begin 121 acrosspm
 elif [ ${server} -eq 104 ];then
-	begin 121 PM_app@123
+	begin 151 PM_app@123
 elif [ ${server} -eq 106 ];then
 	begin 121 PM_app@123
 fi
