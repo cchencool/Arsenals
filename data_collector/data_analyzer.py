@@ -55,7 +55,10 @@ def main():
     print(points)
     keys=list(points.keys())
     fig = plt.figure()
-    plt.plot(list(map(lambda d: abs(float(d[1])), points[keys[0]])), 'k--')
+    plt.plot(list(map(lambda d: float(d[0]), points[keys[0]])), 'b--')
+    plt.plot(list(map(lambda d: float(d[1]), points[keys[0]])), 'g--')
+    plt.plot(list(map(lambda d: float(d[2]), points[keys[0]])), 'r--')
+    plt.plot(list(map(lambda d: float(d[3]), points[keys[0]])), 'k--')
     plt.show()
 
 

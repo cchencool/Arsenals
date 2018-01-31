@@ -14,13 +14,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    # small change. 
+    # small change.
 	data = request.values['data']
 	now = datetime.now()
 	now_strf = now.strftime('%s')
 	dir_name="./data"
 	f_name = dir_name + ("/%s.dat" % now_strf)
-	
+
 	#f = open('data.dat', 'a')
 	f = StringIO()
 	f.write("-----------------------------------------\n")
@@ -34,7 +34,7 @@ def home():
 
 	with open(f_name, 'a') as c:
 		c.write(f.getvalue())
-	
+
 	return 'success'
 	#print("--------------------------")
 	#print("now: %s\ndata:\n%s" % (now, data))
