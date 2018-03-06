@@ -1,203 +1,160 @@
 package com.inspur.practice17.pkg11_21;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.stream.IntStream;
+import java.util.concurrent.*;
+import java.util.stream.*;
+import java.util.*;
 
 public class ParallelStreamTest {
-
     public static void main(String[] args) {
-//		List<String> countList = new ArrayList<String>(Collections.nCopies(50000, "string"));
         List<Object> orderList = new ArrayList<Object>();
-
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 50000; ++i) {
             orderList.add(String.valueOf(i));
+        }
+        runDataCalculateTest(args);
+    }
+
+    private static void runDataCalculateTest(String[] args) {
+        Set<DataVO> dataVOs = new HashSet<DataVO>();
+        ConcurrentHashMap<String, DataVO> key2DataVo = new ConcurrentHashMap<String, DataVO>();
+        Set<DataVO> dataVOs_p = new HashSet<DataVO>();
+        ConcurrentHashMap<String, DataVO> key2DataVo_p = new ConcurrentHashMap<String, DataVO>();
+        int default_dataCount = 10000;
+        int default_valueCount = 100;
+        if (args.length > 1) {
+            default_dataCount = Integer.valueOf(args[0]);
+            default_valueCount = Integer.valueOf(args[1]);
+        }
+        boolean isRunNoParallerTest = true;//false;
+        if (args.length > 2) {
+            isRunNoParallerTest = "true".equalsIgnoreCase(args[2]);
+        }
+        boolean isOutPutMap = false;
+        if (args.length > 3) {
+            isOutPutMap = "true".equalsIgnoreCase(args[3]);
         }
 
 
-        // test
-//		orderList.parallelStream().forEach(new Consumer<String>()
-//		{
-//			@Override
-//			public void accept(String t)
-//			{
-//			}
-//		});
+        long time_start_cd = System.currentTimeMillis();
+        int valueCount = default_valueCount;
+        ConcurrentHashMap<String, DataVO> key2DataVO = new ConcurrentHashMap<String, DataVO>();
+        ConcurrentHashMap<String, DataVO> key2DataVO_p = new ConcurrentHashMap<String, DataVO>();
+        IntStream
+                .range(30, default_dataCount)
+                .parallel()
+                .forEach(i -> {
+                    ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<String, Integer>();
+                    IntStream.range(1, valueCount).parallel().forEach(j -> map.put(String.valueOf(j), j));
+                    String key = String.valueOf(i);
+                    DataVO dataVO2 = new DataVO(key, map);
+                    dataVOs.add(dataVO2);
+                    key2DataVO.put(key, dataVO2);
+
+                    ConcurrentHashMap<String, Integer> map_p = new ConcurrentHashMap<String, Integer>();
+                    IntStream.range(1, valueCount).parallel().forEach(j -> map_p.put(String.valueOf(j), j));
+                    String key_p = String.valueOf(i);
+                    DataVO dataVO_p = new DataVO(key_p, map_p);
+                    dataVOs_p.add(dataVO_p);
+                    key2DataVO_p.put(key_p, dataVO_p);
+                });
+        long time_end_cd = System.currentTimeMillis();
+        System.out.println("create data cost: " + (time_end_cd - time_start_cd));
+
+//		Collections.synchronizedSet(dataVOs_p);
+
+        long time_start = System.currentTimeMillis();
+        dataVOs_p.parallelStream().forEach(dataVO -> {
+            String key = String.valueOf(Integer.valueOf(dataVO.getId()) % 30);
+            key2DataVO_p
+                    .merge(key,
+                            new DataVO(key, new ConcurrentHashMap<String, Integer>(dataVO.getValueMap())),
+                            (oldV, newV) -> {
+                                ConcurrentHashMap<String, Integer>  old_vmap = oldV.getValueMap();
+                                ConcurrentHashMap<String, Integer>  new_vmap = oldV.getValueMap();
+                                synchronized (old_vmap) {
+                                    new_vmap.keySet()
+                                            .forEach(k -> old_vmap.compute(k, (nv, ov) -> Integer.valueOf(nv) + Integer.valueOf(ov)));
+                                }
+                                return oldV;
+                            });
+        });
+        long time_end = System.currentTimeMillis();
+        System.out.println("parallel set cost: " + (time_end - time_start));
 
 
-        // test
-//		Map<Integer, String> map = new HashMap<Integer, String>();
-//		List<String> ct = orderList.parallelStream()
-//				//.filter((r) -> Integer.valueOf(r) > 40000)
-//				.map(r -> String.valueOf(Integer.valueOf(r)* 2))
-//				.collect(Collectors.toList());
-//		System.out.println(ct);
+        if (isRunNoParallerTest) {
+            time_start = System.currentTimeMillis();
+            dataVOs.parallelStream().forEach(dataVO -> {
+                String key = String.valueOf(Integer.valueOf(dataVO.getId()) % 30);
+                key2DataVO.merge(key,
+                        new DataVO(key, new ConcurrentHashMap<String, Integer>(dataVO.getValueMap())),
+                        (oldV, newV) -> {
+                            ConcurrentHashMap<String, Integer>  old_vmap = oldV.getValueMap();
+                            ConcurrentHashMap<String, Integer>  new_vmap = oldV.getValueMap();
+                            synchronized (old_vmap) {
+                                new_vmap.keySet()
+                                        .forEach(k -> old_vmap.compute(k, (nv, ov) -> Integer.valueOf(nv) + Integer.valueOf(ov)));
+                            }
+                            return oldV;
+                        });
+            });
+            time_end = System.currentTimeMillis();
+            System.out.println("no parallel set cost: " + (time_end - time_start));
+        }
 
 
-        // test
-//		final List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
-//		
-//        final Optional<Integer> sum = orderList.parallelStream()
-//        		.filter((r) -> r > 40000
-//                .reduce((a, b) -> a + b);
-//        
-//        int a = sum.orElseGet(() -> 0);
-//        System.out.println(a);
+        if (isOutPutMap && isRunNoParallerTest) {
+            List<DataVO> finalDs = key2DataVo.values().parallelStream()
+                    .filter(d -> Integer.valueOf(d.getId()) < 30).collect(Collectors.toList());
+            System.out.println(finalDs);
+            System.out.println(finalDs.size());
+        }
 
-        // test
-//		Optional<String> v = orderList.parallelStream()
-//		.map(val -> {
-//			return String.valueOf(val);
-//		})
-//		.reduce((a, b) -> {
-//			return (a + b);
-//		});
-//		
-//		v.ifPresent(System.out::println);
-
-        // test
-//		String[] arr = {"a","a","a","a","a","a","a","a","a","a"};
-//		System.out.println(arr);
-//		System.out.println(Arrays.asList(arr));
-//      System.out.println(Stream.of(arr).reduce((a ,b) -> a + ',' + b).orElseGet(() -> ""));
+        time_start = System.currentTimeMillis();
+        List<DataVO> finalDs_p = key2DataVo_p.values().parallelStream()
+                .filter(d -> Integer.valueOf(d.getId()) < 30).collect(Collectors.toList());
+        if (isOutPutMap) {
+            System.out.println(finalDs_p);
+        }
+        time_end = System.currentTimeMillis();
+        System.out.println("result org cost: " + (time_end - time_start));
+        System.out.println("result size: " + finalDs_p.size());
+    }
 
 
-        // test
-//		List<Integer> numbers = IntStream.rangeClosed(1, 100000).boxed().collect(Collectors.toList());
-//		System.out.println(numbers);
+    public static class DataVO
+    {
+        private String id;
+        private ConcurrentHashMap<String, Integer> valueMap;
 
+        public DataVO(final String id, final ConcurrentHashMap<String, Integer> map) {
+            this.id = id;
+            this.valueMap = map;
+        }
 
-        // test
-//		ConcurrentMap<String, ConcurrentMap<String, ConcurrentMap<String, ArrayList<String>>>> obj2Timedimension2Datetime2DataVOs
-//		 = new ConcurrentHashMap<String, ConcurrentMap<String, ConcurrentMap<String, ArrayList<String>>>>(); 
-//		
-//		IntStream.rangeClosed(1, 5).parallel().forEach(i -> {
-//			
-//			IntStream.rangeClosed(6, 10).parallel().forEach(j -> {
-//				
-//				IntStream.rangeClosed(11, 15).parallel().forEach(k -> {
-//					
-//					IntStream.rangeClosed(16, 20).parallel().forEach(g -> {
-//						
-//						obj2Timedimension2Datetime2DataVOs
-//						.computeIfAbsent(String.valueOf(i), (a) -> new ConcurrentHashMap<String, ConcurrentMap<String, ArrayList<String>>>())
-//						.computeIfAbsent(String.valueOf(j), (a) -> new ConcurrentHashMap<String, ArrayList<String>>())
-//						.computeIfAbsent(String.valueOf(k), (a) -> new ArrayList<String>())
-//						.add(String.valueOf(g));
-//						
-//					});
-//					
-//				});
-//				
-//			});
-//		});
-//		
-//		System.out.println(obj2Timedimension2Datetime2DataVOs);
+        public String getId() {
+            return this.id;
+        }
 
+        public void setId(final String id) {
+            this.id = id;
+        }
 
-        // test
-//		String str = "20171204180520";
-//		
-//		System.out.println(str.substring(0, 8));
-//		System.out.println(str.substring(8, 14));
-//		
-//		System.out.println(Integer.valueOf(str.substring(10, 12)));
+        public ConcurrentHashMap<String, Integer> getValueMap() {
+            return this.valueMap;
+        }
 
+        public void setValueMap(final ConcurrentHashMap<String, Integer> valueMap) {
+            this.valueMap = valueMap;
+        }
 
-        // test
-//        ConcurrentMap<String, ConcurrentMap<String, Integer>> map1 = new ConcurrentHashMap<String, ConcurrentMap<String, Integer>>();
-//        ConcurrentMap<String, ConcurrentMap<String, Integer>> map2 = new ConcurrentHashMap<String, ConcurrentMap<String, Integer>>();
-//
-//        IntStream.range(0, 5).parallel().forEach(i -> {
-//
-//            IntStream.range(0, 5).parallel().forEach(j -> {
-//
-//                map1
-//                .computeIfAbsent(String.valueOf(i), a -> new ConcurrentHashMap<String, Integer>())
-//                .put(String.valueOf(j), j);
-//
-//            });
-//        });
-//
-//        IntStream.range(0, 5).parallel().forEach(i -> {
-//
-//            IntStream.range(5, 10).parallel().forEach(j -> {
-//
-//                map2
-//                .computeIfAbsent(String.valueOf(i), a -> new ConcurrentHashMap<String, Integer>())
-//                .put(String.valueOf(j - 5), j);
-//
-//            });
-//        });
-//
-//
-//        System.out.println(map1);
-//        System.out.println(map2);
-//
-//        map1.keySet().parallelStream().forEach(i ->
-//        {
-//
-//            System.out.println(Integer.valueOf(i) + 5);
-//            System.out.println(i);
-//
-//            map1.merge(String.valueOf(i), map2.get(i), (ov, nv) ->
-//            {
-//                ov.keySet().forEach(j ->
-//                {
-//                    Integer ovj = ov.get(j);
-//                    Integer nvj = nv.get(j);
-//
-//                    ov.put(j, ovj + nvj);
-//                    if ("4".equalsIgnoreCase(j)) {
-//                        ov.remove(j);
-//                    }
-//                });
-//
-//                return ov;
-//            });
-//        });
-//		
-//		System.out.println(map1);
-
-        // test
-//		Long timeStart = System.currentTimeMillis();
-//		ConcurrentMap<String, List<String>> objid_src_date2Upperobjids = new ConcurrentHashMap<String, List<String>>();
-//
-//		IntStream.range(0, 100).parallel().forEach(i -> {
-//
-//			IntStream.range(0, 100).parallel().forEach(j -> {
-//
-//				List<String> list = objid_src_date2Upperobjids
-//				.computeIfAbsent(String.valueOf(i), a -> new ArrayList<String>());
-//
-//				synchronized (list)
-//				{
-//					list.add(String.valueOf(j));
-//				}
-//
-//			});
-//		});
-//		Long timeEnd = System.currentTimeMillis();
-//
-//		System.out.println(objid_src_date2Upperobjids);
-//		System.out.println("cost: " + (timeEnd - timeStart));
-
-
-        // test
-//		TreeMap<String, String> treeMap = new TreeMap<String, String>();
-//
-//		treeMap.put("a", "123");
-//		treeMap.put("c", "123");
-//		treeMap.put("b", "123");
-//		treeMap.put("f", "123");
-//		treeMap.put("e", "123");
-//		treeMap.put("d", "123");
-//
-//		System.out.println(treeMap);
-
-
-
+        @Override
+        public String toString() {
+            final StringBuffer sb = new StringBuffer();
+            sb.append("id: " + this.id);
+            sb.append("\n");
+            sb.append("val: " + this.valueMap);
+            sb.append("\n");
+            return sb.toString();
+        }
     }
 }
