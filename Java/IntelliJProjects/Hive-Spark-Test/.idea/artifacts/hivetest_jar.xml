@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="hivetest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/hivetest_jar</output-path>
+    <root id="archive" name="hivetest.jar">
+      <element id="module-output" name="hivetest" />
+    </root>
+  </artifact>
+</component>

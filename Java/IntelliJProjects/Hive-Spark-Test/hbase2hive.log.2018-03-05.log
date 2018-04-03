@@ -1,0 +1,44 @@
+[0305 17:37:13 787 INFO ] [main] inspur.pmv6.Entrance - Program start..
+[0305 17:37:13 788 ERROR] [main] inspur.pmv6.Entrance - Input parameter less than 4. Please input 4 parameters: hdfsformat, compressmode, startdaytime, enddaytime
+[0305 17:39:44 838 INFO ] [main] pmv6.dao.HiveDao - hivedao parameters : jdbc:hive2://10.211.55.29:10000/default?hive.server2.transport.mode=http;hive.server2.thrift.http.path=cliservice hive hive
+[0305 17:39:44 991 INFO ] [main] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0305 17:39:44 991 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:39:44 992 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.transport.mode is deprecated.
+[0305 17:39:44 992 WARN ] [main] hive.jdbc.Utils - Please use transportMode like so: jdbc:hive2://<host>:<port>/dbName;transportMode=<transport_mode_value>
+[0305 17:39:44 992 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:39:44 992 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.thrift.http.path is deprecated.
+[0305 17:39:44 992 WARN ] [main] hive.jdbc.Utils - Please use httpPath like so: jdbc:hive2://<host>:<port>/dbName;httpPath=<http_path_value>
+[0305 17:39:44 992 INFO ] [main] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0305 17:41:25 811 INFO ] [main] pmv6.dao.HiveDao - hivedao parameters : jdbc:hive2://10.211.55.29:10000/default?hive.server2.transport.mode=http;hive.server2.thrift.http.path=cliservice hive hive
+[0305 17:41:25 955 INFO ] [main] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0305 17:41:25 957 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:41:25 957 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.transport.mode is deprecated.
+[0305 17:41:25 957 WARN ] [main] hive.jdbc.Utils - Please use transportMode like so: jdbc:hive2://<host>:<port>/dbName;transportMode=<transport_mode_value>
+[0305 17:41:25 957 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:41:25 957 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.thrift.http.path is deprecated.
+[0305 17:41:25 957 WARN ] [main] hive.jdbc.Utils - Please use httpPath like so: jdbc:hive2://<host>:<port>/dbName;httpPath=<http_path_value>
+[0305 17:41:25 958 INFO ] [main] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0305 17:42:09 016 INFO ] [main] pmv6.dao.HiveDao - hivedao parameters : jdbc:hive2://10.211.55.29:10000/default?hive.server2.transport.mode=http;hive.server2.thrift.http.path=cliservice hive hive
+[0305 17:42:09 160 INFO ] [main] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0305 17:42:09 161 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:42:09 161 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.transport.mode is deprecated.
+[0305 17:42:09 161 WARN ] [main] hive.jdbc.Utils - Please use transportMode like so: jdbc:hive2://<host>:<port>/dbName;transportMode=<transport_mode_value>
+[0305 17:42:09 161 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:42:09 161 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.thrift.http.path is deprecated.
+[0305 17:42:09 161 WARN ] [main] hive.jdbc.Utils - Please use httpPath like so: jdbc:hive2://<host>:<port>/dbName;httpPath=<http_path_value>
+[0305 17:42:09 162 INFO ] [main] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0305 17:42:30 019 INFO ] [main] pmv6.dao.HiveDao - hivedao parameters : jdbc:hive2://10.211.55.29:10000/default?hive.server2.transport.mode=http;hive.server2.thrift.http.path=cliservice hive hive
+[0305 17:43:15 587 INFO ] [main] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0305 17:43:15 591 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:43:15 592 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.transport.mode is deprecated.
+[0305 17:43:15 593 WARN ] [main] hive.jdbc.Utils - Please use transportMode like so: jdbc:hive2://<host>:<port>/dbName;transportMode=<transport_mode_value>
+[0305 17:43:15 593 WARN ] [main] hive.jdbc.Utils - ***** JDBC param deprecation *****
+[0305 17:43:15 594 WARN ] [main] hive.jdbc.Utils - The use of hive.server2.thrift.http.path is deprecated.
+[0305 17:43:15 595 WARN ] [main] hive.jdbc.Utils - Please use httpPath like so: jdbc:hive2://<host>:<port>/dbName;httpPath=<http_path_value>
+[0305 17:43:15 596 INFO ] [main] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0305 17:45:01 615 INFO ] [main] pmv6.dao.HiveDao - hivedao parameters : jdbc:hive2://10.211.55.29:10000/default hive hive
+[0305 17:45:06 903 INFO ] [main] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0305 17:45:06 906 INFO ] [main] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0305 17:45:07 971 INFO ] [main] hive.jdbc.HiveConnection - Will try to open client transport with JDBC Uri: jdbc:hive2://10.211.55.29:10000/default
+[0305 17:45:13 075 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table values ('3', '4')
+[0305 17:45:15 856 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 2781

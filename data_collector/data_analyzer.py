@@ -47,14 +47,27 @@ def extract_data(filepath):
     return points_map
 
 def do_plot(points):
-    fig = plt.figure()
-    plt.p 
+    pass
 
 def main():
     points = extract_data('./data/')
-    print(points)
+    #print(points)
     keys=list(points.keys())
-    fig = plt.figure()
+    fig = plt.figure(1,(15,10))
+    ax1=fig.add_subplot(221)
+    plt.title('x acceleration')
+    plt.plot(list(map(lambda d: float(d[0]), points[keys[0]])), 'b--')
+
+    ax2=fig.add_subplot(222)
+    plt.title('y acceleration')
+    plt.plot(list(map(lambda d: float(d[1]), points[keys[0]])), 'g--')
+    
+    ax3=fig.add_subplot(223)
+    plt.title('z acceleration')
+    plt.plot(list(map(lambda d: float(d[2]), points[keys[0]])), 'r--')
+
+    ax4=fig.add_subplot(224)
+    plt.title('abs acceleration')
     plt.plot(list(map(lambda d: float(d[0]), points[keys[0]])), 'b--')
     plt.plot(list(map(lambda d: float(d[1]), points[keys[0]])), 'g--')
     plt.plot(list(map(lambda d: float(d[2]), points[keys[0]])), 'r--')

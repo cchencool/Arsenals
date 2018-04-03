@@ -1,0 +1,424 @@
+[0329 08:44:45 108 INFO ] [MLog-Init-Reporter] v2.log.MLog - MLog clients using slf4j logging.
+[0329 08:44:45 632 INFO ] [main] v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[0329 08:44:45 823 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 010000, 89.17996720348023)
+[0329 08:44:45 858 INFO ] [main] c3p0.impl.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 1, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge0w29uuuvwwe1xyswvs|80ec1f8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> org.apache.hive.jdbc.HiveDriver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge0w29uuuvwwe1xyswvs|80ec1f8, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:hive2://10.211.55.29:10000/default, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 2, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 1, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[0329 08:44:45 902 WARN ] [main] v2.resourcepool.BasicResourcePool - Bad pool size config, start 3 > max 2. Using 2 as start.
+[0329 08:44:45 937 INFO ] [C3P0PooledConnectionPoolManager[identityToken->1hge0w29uuuvwwe1xyswvs|80ec1f8]-HelperThread-#2] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0329 08:44:45 937 INFO ] [C3P0PooledConnectionPoolManager[identityToken->1hge0w29uuuvwwe1xyswvs|80ec1f8]-HelperThread-#1] hive.jdbc.Utils - Supplied authorities: 10.211.55.29:10000
+[0329 08:44:45 938 INFO ] [C3P0PooledConnectionPoolManager[identityToken->1hge0w29uuuvwwe1xyswvs|80ec1f8]-HelperThread-#2] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0329 08:44:45 938 INFO ] [C3P0PooledConnectionPoolManager[identityToken->1hge0w29uuuvwwe1xyswvs|80ec1f8]-HelperThread-#1] hive.jdbc.Utils - Resolved authority: 10.211.55.29:10000
+[0329 08:44:46 052 INFO ] [C3P0PooledConnectionPoolManager[identityToken->1hge0w29uuuvwwe1xyswvs|80ec1f8]-HelperThread-#2] hive.jdbc.HiveConnection - Will try to open client transport with JDBC Uri: jdbc:hive2://10.211.55.29:10000/default
+[0329 08:44:46 052 INFO ] [C3P0PooledConnectionPoolManager[identityToken->1hge0w29uuuvwwe1xyswvs|80ec1f8]-HelperThread-#1] hive.jdbc.HiveConnection - Will try to open client transport with JDBC Uri: jdbc:hive2://10.211.55.29:10000/default
+[0329 08:44:52 337 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 6514
+[0329 08:44:52 367 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 020000, 70.6817565878071)
+[0329 08:44:52 721 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 354
+[0329 08:44:52 722 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 030000, 6.335726097211891)
+[0329 08:44:53 206 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 484
+[0329 08:44:53 208 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 040000, 23.3020793592031)
+[0329 08:44:53 574 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 366
+[0329 08:44:53 575 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 050000, 92.15016557533716)
+[0329 08:44:53 968 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 393
+[0329 08:44:53 969 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 060000, 75.61676558895279)
+[0329 08:44:54 346 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 377
+[0329 08:44:54 348 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 070000, 48.24385418951398)
+[0329 08:44:54 766 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 418
+[0329 08:44:54 767 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 080000, 4.7358479835331035)
+[0329 08:44:55 144 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 376
+[0329 08:44:55 146 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 090000, 42.39265251018129)
+[0329 08:44:55 467 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 321
+[0329 08:44:55 469 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 100000, 80.88087579196713)
+[0329 08:44:55 745 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 276
+[0329 08:44:55 746 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 110000, 24.119150423183953)
+[0329 08:44:56 095 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 349
+[0329 08:44:56 097 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 120000, 99.59165632375922)
+[0329 08:44:56 392 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 295
+[0329 08:44:56 393 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 010000, 66.38291246427644)
+[0329 08:44:56 651 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 258
+[0329 08:44:56 652 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 020000, 14.192604701524758)
+[0329 08:44:56 872 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 220
+[0329 08:44:56 874 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 030000, 21.005117999766988)
+[0329 08:44:57 242 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 368
+[0329 08:44:57 243 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 040000, 67.23534814799237)
+[0329 08:44:57 567 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 324
+[0329 08:44:57 569 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 050000, 17.737958440179035)
+[0329 08:44:57 840 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 271
+[0329 08:44:57 841 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 060000, 82.12704703301611)
+[0329 08:44:58 120 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 279
+[0329 08:44:58 121 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 070000, 80.07347575555548)
+[0329 08:44:58 404 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 283
+[0329 08:44:58 405 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 080000, 62.261057751486014)
+[0329 08:44:58 697 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 291
+[0329 08:44:58 699 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 090000, 6.7185292155703795)
+[0329 08:44:58 938 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 239
+[0329 08:44:58 940 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 100000, 37.20792008721209)
+[0329 08:44:59 633 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 693
+[0329 08:44:59 638 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180330, 110000, 90.69299311807603)
+[0329 08:45:00 258 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 620
+[0329 08:45:00 259 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 120000, 71.73197502269608)
+[0329 08:45:00 564 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 305
+[0329 08:45:00 565 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 010000, 40.60058611592342)
+[0329 08:45:00 760 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 195
+[0329 08:45:00 760 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 020000, 11.716857660961255)
+[0329 08:45:01 042 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 282
+[0329 08:45:01 043 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 030000, 85.95147278260859)
+[0329 08:45:01 303 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 260
+[0329 08:45:01 304 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 040000, 24.968721908921776)
+[0329 08:45:01 931 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 626
+[0329 08:45:01 932 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 050000, 3.4714362169572355)
+[0329 08:45:02 177 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 245
+[0329 08:45:02 178 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 060000, 18.088724808913724)
+[0329 08:45:02 379 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 201
+[0329 08:45:02 380 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 070000, 89.9146288990918)
+[0329 08:45:02 596 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 216
+[0329 08:45:02 597 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 080000, 82.24828723880655)
+[0329 08:45:03 226 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 629
+[0329 08:45:03 229 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 090000, 32.619027063749115)
+[0329 08:45:03 475 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 246
+[0329 08:45:03 476 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 100000, 70.15625223805144)
+[0329 08:45:03 703 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 227
+[0329 08:45:03 704 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 110000, 28.33151416607057)
+[0329 08:45:03 919 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 215
+[0329 08:45:03 920 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 120000, 8.483438773543195)
+[0329 08:45:04 140 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 220
+[0329 08:45:04 142 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 010000, 67.92130401831446)
+[0329 08:45:04 372 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 230
+[0329 08:45:04 374 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 020000, 49.526837981897884)
+[0329 08:45:04 603 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 228
+[0329 08:45:04 605 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 030000, 16.546822795624315)
+[0329 08:45:04 810 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 205
+[0329 08:45:04 811 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 040000, 3.284597942133316)
+[0329 08:45:05 027 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 215
+[0329 08:45:05 028 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 050000, 60.50575826796525)
+[0329 08:45:05 264 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 236
+[0329 08:45:05 265 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 060000, 27.01886522922402)
+[0329 08:45:05 453 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 188
+[0329 08:45:05 454 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 070000, 81.05625805422306)
+[0329 08:45:05 715 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 261
+[0329 08:45:05 716 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 080000, 89.76319879874197)
+[0329 08:45:06 333 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 617
+[0329 08:45:06 334 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 090000, 27.437582275359862)
+[0329 08:45:06 582 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 248
+[0329 08:45:06 583 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180401, 100000, 50.35445798215058)
+[0329 08:45:06 778 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 195
+[0329 08:45:06 779 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180402, 110000, 54.44190050562139)
+[0329 08:45:07 403 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 624
+[0329 08:45:07 404 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 120000, 61.01755832206502)
+[0329 08:45:07 652 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 248
+[0329 08:45:07 653 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 010000, 30.308142344144407)
+[0329 08:45:07 848 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 195
+[0329 08:45:07 849 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 020000, 26.200096049507138)
+[0329 08:45:08 475 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 626
+[0329 08:45:08 476 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 030000, 7.350274333202855)
+[0329 08:45:08 691 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 214
+[0329 08:45:08 692 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 040000, 45.449321352450326)
+[0329 08:45:08 920 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 228
+[0329 08:45:08 921 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 050000, 37.33376756087784)
+[0329 08:45:09 131 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 210
+[0329 08:45:09 132 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 060000, 57.16603609080774)
+[0329 08:45:09 333 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 201
+[0329 08:45:09 334 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 070000, 45.726637844811165)
+[0329 08:45:09 564 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 230
+[0329 08:45:09 566 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 080000, 79.8906117223994)
+[0329 08:45:09 736 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 169
+[0329 08:45:09 737 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 090000, 0.9380959510466691)
+[0329 08:45:09 981 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 244
+[0329 08:45:09 982 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 100000, 42.52006581656593)
+[0329 08:45:10 144 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 162
+[0329 08:45:10 145 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 110000, 6.694766981087918)
+[0329 08:45:10 334 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 189
+[0329 08:45:10 335 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 120000, 72.97898736957491)
+[0329 08:45:10 535 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 200
+[0329 08:45:10 536 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 010000, 45.779535934048084)
+[0329 08:45:10 728 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:10 729 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 020000, 15.140584148659386)
+[0329 08:45:10 939 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 210
+[0329 08:45:10 940 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 030000, 32.27230339006047)
+[0329 08:45:11 202 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 262
+[0329 08:45:11 203 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 040000, 0.29939984712736845)
+[0329 08:45:11 479 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 276
+[0329 08:45:11 481 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 050000, 15.798697221503799)
+[0329 08:45:11 666 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 185
+[0329 08:45:11 667 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 060000, 66.62857615760039)
+[0329 08:45:11 874 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 207
+[0329 08:45:11 875 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 070000, 86.53749261771014)
+[0329 08:45:12 066 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:12 066 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 080000, 97.51931603208884)
+[0329 08:45:12 319 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 253
+[0329 08:45:12 320 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180403, 090000, 73.09885162982168)
+[0329 08:45:12 496 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 176
+[0329 08:45:12 497 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180404, 100000, 7.517568048636846)
+[0329 08:45:12 699 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 202
+[0329 08:45:12 700 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180404, 110000, 8.913977306951793)
+[0329 08:45:12 852 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 152
+[0329 08:45:12 854 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 120000, 8.075277452563201)
+[0329 08:45:13 158 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 304
+[0329 08:45:13 159 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 010000, 76.33585270117)
+[0329 08:45:13 815 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 656
+[0329 08:45:13 815 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 020000, 20.165186321983654)
+[0329 08:45:13 988 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 172
+[0329 08:45:13 989 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 030000, 63.916001047640016)
+[0329 08:45:14 253 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 264
+[0329 08:45:14 257 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 040000, 97.92609437072196)
+[0329 08:45:14 535 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 277
+[0329 08:45:14 536 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 050000, 91.782193405141)
+[0329 08:45:14 829 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 293
+[0329 08:45:14 831 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 060000, 88.17946029056846)
+[0329 08:45:15 007 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 176
+[0329 08:45:15 008 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 070000, 55.997263404591536)
+[0329 08:45:15 212 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 204
+[0329 08:45:15 213 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 080000, 71.4700371554446)
+[0329 08:45:15 437 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 224
+[0329 08:45:15 439 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 090000, 6.34311187401998)
+[0329 08:45:15 646 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 207
+[0329 08:45:15 647 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 100000, 28.127555025880525)
+[0329 08:45:15 838 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:15 839 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 110000, 27.072346318058937)
+[0329 08:45:16 009 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 170
+[0329 08:45:16 010 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 120000, 9.930280975647786)
+[0329 08:45:16 188 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 178
+[0329 08:45:16 189 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 010000, 18.54102704028402)
+[0329 08:45:16 375 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 186
+[0329 08:45:16 375 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 020000, 6.79413993395972)
+[0329 08:45:16 599 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 224
+[0329 08:45:16 600 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 030000, 43.83051779365604)
+[0329 08:45:16 843 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 243
+[0329 08:45:16 844 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 040000, 6.344991062639593)
+[0329 08:45:17 011 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 167
+[0329 08:45:17 011 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 050000, 80.84779968239036)
+[0329 08:45:17 236 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 225
+[0329 08:45:17 237 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 060000, 0.40115210436404425)
+[0329 08:45:17 414 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 177
+[0329 08:45:17 414 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 070000, 12.137373972396437)
+[0329 08:45:17 605 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:17 606 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180405, 080000, 89.75543368830029)
+[0329 08:45:17 853 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 247
+[0329 08:45:17 853 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180406, 090000, 54.73261412312321)
+[0329 08:45:18 429 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 575
+[0329 08:45:18 430 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180406, 100000, 40.970201997212705)
+[0329 08:45:18 591 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 161
+[0329 08:45:18 592 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180406, 110000, 26.620719386326584)
+[0329 08:45:18 781 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 189
+[0329 08:45:18 782 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 120000, 15.267507126794044)
+[0329 08:45:18 976 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 194
+[0329 08:45:18 977 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 010000, 18.406570766664597)
+[0329 08:45:19 164 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 187
+[0329 08:45:19 164 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 020000, 99.4034692609346)
+[0329 08:45:19 309 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 145
+[0329 08:45:19 310 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 030000, 74.96269800371935)
+[0329 08:45:19 898 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 588
+[0329 08:45:19 899 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 040000, 46.36915936491924)
+[0329 08:45:20 447 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 548
+[0329 08:45:20 448 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 050000, 36.483335533469564)
+[0329 08:45:21 006 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 558
+[0329 08:45:21 007 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 060000, 74.87835644340169)
+[0329 08:45:21 160 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 153
+[0329 08:45:21 161 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 070000, 68.47111082952601)
+[0329 08:45:21 387 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 226
+[0329 08:45:21 389 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 080000, 71.21815959954357)
+[0329 08:45:21 580 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:21 589 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 090000, 60.63850591350769)
+[0329 08:45:21 756 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 167
+[0329 08:45:21 757 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 100000, 95.79586404722356)
+[0329 08:45:21 918 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 161
+[0329 08:45:21 919 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 110000, 63.178536518685426)
+[0329 08:45:22 110 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:22 110 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 120000, 75.57173036855094)
+[0329 08:45:22 260 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 150
+[0329 08:45:22 261 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 010000, 80.83860261895656)
+[0329 08:45:22 425 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 164
+[0329 08:45:22 425 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 020000, 88.79199295712297)
+[0329 08:45:22 571 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 146
+[0329 08:45:22 571 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 030000, 69.01872840458613)
+[0329 08:45:22 734 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 163
+[0329 08:45:22 734 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 040000, 41.61159074156561)
+[0329 08:45:22 874 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 140
+[0329 08:45:22 875 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 050000, 87.82388796536306)
+[0329 08:45:23 043 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 168
+[0329 08:45:23 044 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 060000, 39.216159657263795)
+[0329 08:45:23 242 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 198
+[0329 08:45:23 243 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180407, 070000, 18.555472677390327)
+[0329 08:45:23 819 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 576
+[0329 08:45:23 819 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180408, 080000, 54.124969605393204)
+[0329 08:45:24 390 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 571
+[0329 08:45:24 390 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180408, 090000, 39.267520323531535)
+[0329 08:45:24 923 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 533
+[0329 08:45:24 923 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180408, 100000, 49.00008196678145)
+[0329 08:45:25 074 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 151
+[0329 08:45:25 075 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180408, 110000, 81.28994426935175)
+[0329 08:45:25 236 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 161
+[0329 08:45:25 237 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 120000, 73.33421112359895)
+[0329 08:45:25 420 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 183
+[0329 08:45:25 420 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 010000, 44.396773954827864)
+[0329 08:45:25 589 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 169
+[0329 08:45:25 589 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 020000, 95.985104121728)
+[0329 08:45:25 748 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 159
+[0329 08:45:25 748 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 030000, 64.74831513532722)
+[0329 08:45:25 910 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 161
+[0329 08:45:25 911 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 040000, 77.12456738866288)
+[0329 08:45:26 494 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 582
+[0329 08:45:26 494 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 050000, 94.850407297506)
+[0329 08:45:26 688 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 193
+[0329 08:45:26 689 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 060000, 12.545503763050657)
+[0329 08:45:26 876 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 187
+[0329 08:45:26 877 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 070000, 39.352174593579505)
+[0329 08:45:27 041 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 164
+[0329 08:45:27 041 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 080000, 84.501894537293)
+[0329 08:45:27 276 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 234
+[0329 08:45:27 278 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 090000, 73.15948805063219)
+[0329 08:45:27 437 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 159
+[0329 08:45:27 438 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 100000, 30.7398479943627)
+[0329 08:45:27 611 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 173
+[0329 08:45:27 611 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 110000, 60.500156590284405)
+[0329 08:45:27 802 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:27 803 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 120000, 46.8189058688429)
+[0329 08:45:27 969 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 166
+[0329 08:45:27 970 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 010000, 64.47729478192244)
+[0329 08:45:28 138 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 168
+[0329 08:45:28 138 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 020000, 86.24194264025647)
+[0329 08:45:28 308 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 170
+[0329 08:45:28 310 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 030000, 38.33981959416659)
+[0329 08:45:28 471 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 161
+[0329 08:45:28 472 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 040000, 33.64073450031145)
+[0329 08:45:28 730 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 258
+[0329 08:45:28 731 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 050000, 82.04717517563805)
+[0329 08:45:28 874 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 143
+[0329 08:45:28 875 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180409, 060000, 33.94754635119277)
+[0329 08:45:29 447 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 572
+[0329 08:45:29 449 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180410, 070000, 23.38476517232282)
+[0329 08:45:29 604 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 155
+[0329 08:45:29 606 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180410, 080000, 46.07755505854507)
+[0329 08:45:29 770 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 164
+[0329 08:45:29 771 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180410, 090000, 92.38555325461539)
+[0329 08:45:29 937 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 166
+[0329 08:45:29 937 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180410, 100000, 4.422465478569382)
+[0329 08:45:30 121 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 184
+[0329 08:45:30 122 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180410, 110000, 34.432628509144735)
+[0329 08:45:30 249 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 127
+[0329 08:45:30 250 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 120000, 61.99405041204918)
+[0329 08:45:30 464 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 214
+[0329 08:45:30 465 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 010000, 92.27051529666765)
+[0329 08:45:31 069 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 604
+[0329 08:45:31 073 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 020000, 22.25220768687922)
+[0329 08:45:31 245 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 171
+[0329 08:45:31 246 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 030000, 54.165428886342916)
+[0329 08:45:31 481 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 235
+[0329 08:45:31 482 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 040000, 54.71255567892268)
+[0329 08:45:31 634 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 152
+[0329 08:45:31 634 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 050000, 46.364735103110924)
+[0329 08:45:31 825 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 191
+[0329 08:45:31 825 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 060000, 14.872934359742429)
+[0329 08:45:31 982 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 157
+[0329 08:45:31 982 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 070000, 57.36455775214899)
+[0329 08:45:32 144 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 162
+[0329 08:45:32 145 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 080000, 29.658724500489953)
+[0329 08:45:32 308 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 163
+[0329 08:45:32 308 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 090000, 41.66473899163511)
+[0329 08:45:32 867 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 559
+[0329 08:45:32 868 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 100000, 63.607923095953836)
+[0329 08:45:33 065 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 197
+[0329 08:45:33 066 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 110000, 16.848375179395546)
+[0329 08:45:33 305 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 239
+[0329 08:45:33 306 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 120000, 91.85560442709541)
+[0329 08:45:33 518 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 212
+[0329 08:45:33 518 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 010000, 52.95679944807821)
+[0329 08:45:33 697 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 179
+[0329 08:45:33 697 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 020000, 87.40333463631869)
+[0329 08:45:34 342 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 645
+[0329 08:45:34 344 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 030000, 53.04129665984468)
+[0329 08:45:34 478 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 134
+[0329 08:45:34 479 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 040000, 91.25402408895144)
+[0329 08:45:34 657 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 178
+[0329 08:45:34 658 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180411, 050000, 42.07307335105527)
+[0329 08:45:34 808 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 150
+[0329 08:45:34 808 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180412, 060000, 4.1515916177902294)
+[0329 08:45:34 987 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 178
+[0329 08:45:34 988 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180412, 070000, 54.508908939046144)
+[0329 08:45:35 149 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 161
+[0329 08:45:35 150 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180412, 080000, 92.59426657727533)
+[0329 08:45:35 302 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 152
+[0329 08:45:35 303 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180412, 090000, 32.97980067695468)
+[0329 08:45:35 860 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 557
+[0329 08:45:35 860 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180412, 100000, 84.51017922291632)
+[0329 08:45:36 026 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 166
+[0329 08:45:36 027 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180412, 110000, 98.84453428942899)
+[0329 08:45:36 200 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 173
+[0329 08:45:36 200 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 120000, 81.82598510783836)
+[0329 08:45:36 394 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 194
+[0329 08:45:36 395 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 010000, 14.59273274237166)
+[0329 08:45:36 569 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 174
+[0329 08:45:36 570 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 020000, 98.76828481879024)
+[0329 08:45:36 727 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 157
+[0329 08:45:36 728 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 030000, 45.96836640803106)
+[0329 08:45:36 895 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 167
+[0329 08:45:36 896 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 040000, 52.07036206243688)
+[0329 08:45:37 051 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 155
+[0329 08:45:37 051 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 050000, 23.703210536748387)
+[0329 08:45:37 200 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 149
+[0329 08:45:37 201 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 060000, 58.58310852747625)
+[0329 08:45:37 342 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 141
+[0329 08:45:37 343 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 070000, 59.20113795339991)
+[0329 08:45:37 489 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 146
+[0329 08:45:37 489 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 080000, 8.69057172985327)
+[0329 08:45:37 619 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 130
+[0329 08:45:37 620 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 090000, 51.511582749119356)
+[0329 08:45:37 783 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 163
+[0329 08:45:37 784 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 100000, 72.30235084442559)
+[0329 08:45:37 946 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 162
+[0329 08:45:37 946 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 110000, 33.40003204680551)
+[0329 08:45:38 147 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 201
+[0329 08:45:38 147 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 120000, 95.24361493149088)
+[0329 08:45:38 309 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 162
+[0329 08:45:38 310 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 010000, 99.0029635412783)
+[0329 08:45:38 478 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 168
+[0329 08:45:38 478 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 020000, 65.10878346114514)
+[0329 08:45:39 048 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 570
+[0329 08:45:39 049 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 030000, 73.99533855539286)
+[0329 08:45:39 202 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 153
+[0329 08:45:39 203 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180413, 040000, 69.91862174361852)
+[0329 08:45:39 371 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 168
+[0329 08:45:39 371 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 050000, 78.76360000900333)
+[0329 08:45:39 555 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 184
+[0329 08:45:39 555 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 060000, 63.36740623002041)
+[0329 08:45:40 114 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 559
+[0329 08:45:40 115 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 070000, 75.94213594578959)
+[0329 08:45:40 257 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 142
+[0329 08:45:40 261 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 080000, 55.52373691572146)
+[0329 08:45:40 440 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 179
+[0329 08:45:40 443 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 090000, 23.824367974707407)
+[0329 08:45:40 615 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 172
+[0329 08:45:40 616 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 100000, 6.325248314149523)
+[0329 08:45:41 300 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 684
+[0329 08:45:41 301 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180414, 110000, 97.40206733724575)
+[0329 08:45:41 441 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 140
+[0329 08:45:41 442 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 120000, 45.16580968049411)
+[0329 08:45:42 068 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 626
+[0329 08:45:42 070 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 010000, 17.731264458546615)
+[0329 08:45:42 244 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 174
+[0329 08:45:42 244 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 020000, 27.708316447972425)
+[0329 08:45:42 465 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 221
+[0329 08:45:42 466 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 030000, 9.396049761647562)
+[0329 08:45:42 626 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 160
+[0329 08:45:42 627 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 040000, 70.47401339276198)
+[0329 08:45:42 834 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 207
+[0329 08:45:42 834 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 050000, 4.2809923631973446)
+[0329 08:45:43 693 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 859
+[0329 08:45:43 695 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 060000, 44.77983038895322)
+[0329 08:45:43 875 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 180
+[0329 08:45:43 875 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 070000, 29.719551767079533)
+[0329 08:45:44 070 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 195
+[0329 08:45:44 071 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 080000, 29.550678287738506)
+[0329 08:45:44 229 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 158
+[0329 08:45:44 230 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 090000, 70.22299702263439)
+[0329 08:45:44 429 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 199
+[0329 08:45:44 430 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 100000, 3.0683157154726026)
+[0329 08:45:44 566 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 136
+[0329 08:45:44 567 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 110000, 17.08782336632282)
+[0329 08:45:44 751 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 184
+[0329 08:45:44 752 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 120000, 27.789570677507914)
+[0329 08:45:44 925 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 173
+[0329 08:45:44 926 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 010000, 19.717689813106944)
+[0329 08:45:45 149 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 223
+[0329 08:45:45 150 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 020000, 51.243743492299245)
+[0329 08:45:45 322 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 172
+[0329 08:45:45 322 INFO ] [main] pmv6.dao.HiveDao - start to execute the sql :insert into test_table_double values (20180415, 030000, 9.779308473032655)
+[0329 08:45:45 493 INFO ] [main] pmv6.dao.HiveDao - executesql success, cost time: 171

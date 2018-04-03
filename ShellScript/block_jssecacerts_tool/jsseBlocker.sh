@@ -2,6 +2,7 @@
 
 sw=$1
 
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home"
 file="$JAVA_HOME/jre/lib/security/jssecacerts"
 file_block="$JAVA_HOME/jre/lib/security/jssecacerts_bak"
 

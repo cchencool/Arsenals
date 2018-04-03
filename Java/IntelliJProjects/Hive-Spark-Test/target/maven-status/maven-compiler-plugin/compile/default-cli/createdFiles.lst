@@ -1,0 +1,11 @@
+com/inspur/pmv6/udaf/UDAF_Simple$TestUDAFEvaluator.class
+com/inspur/pmv6/dao/HbaseDao.class
+com/inspur/pmv6/service/ParquetPersist$1.class
+com/inspur/pmv6/service/SparkService.class
+com/inspur/pmv6/udaf/UDAF_Simple.class
+com/inspur/pmv6/service/SequnceFilePersist.class
+com/inspur/pmv6/dao/HiveDaoUtils.class
+com/inspur/pmv6/service/ORCPersist.class
+com/inspur/pmv6/service/ParquetPersist.class
+com/inspur/pmv6/service/Hbase2HiveService.class
+com/inspur/pmv6/dao/HiveDao.class
