@@ -17,6 +17,8 @@ function initParam()
 	local_rsc=/encrypt/rootsecu
 	local_erp=/encrypt/encrypt
 	local_drp=/encrypt/decrypt
+	local_krb_cnf=/opt/netwatcher/pm4h2/app/opt/krb5-1.15.2/conf/indata/krb5.conf
+	local_krb_key=/netwatcher/pm4h2/app/opt/krb5-1.15.2/var/krb5kdc/hbase.keytab
 	local_dsk=/Users/Chen/Desktop
 	
 	server_cmn=/opt/netwatcher/pm4h2/app/conf/common.properties
@@ -25,6 +27,8 @@ function initParam()
 	server_rsc=/opt/netwatcher/pm4h2/work/conf/security/rootsecu/rootsecu.txt
 	server_erp=/opt/netwatcher/pm4h2/work/conf/encrypt/encrypt.txt
 	server_drp=/opt/netwatcher/pm4h2/work/conf/decrypt/decrypt.txt
+	server_krb_cnf=/opt/netwatcher/pm4h2/app/opt/krb5-1.15.2/conf/indata/krb5.conf
+	server_krb_key=/netwatcher/pm4h2/app/opt/krb5-1.15.2/var/krb5kdc/hbase.keytab
 }
 
 function doScp()
@@ -47,6 +51,13 @@ function doScp()
 	${basepath}/DPC.sh ${ip_prefix}${ip_last} $1 ${server_drp} ${local_drp} > /dev/null 2>&1
 	result=`getResult`
 	echo "Get decrypt.tx ${result}"
+	${basepath}/DPC.sh ${ip_prefix}${ip_last} $1 ${server_krb_cnf} ${local_krb_cnf} > /dev/null 2>&1
+	result=`getResult`
+	echo "Get krb5.conf ${result}"
+	${basepath}/DPC.sh ${ip_prefix}${ip_last} $1 ${server_krb_key} ${local_krb_key} > /dev/null 2>&1
+	result=`getResult`
+	echo "Get hive.service.keytab ${result}"
+
 }
 
 function begin()
@@ -92,7 +103,7 @@ elif [ ${server} -eq 157 ];then
 elif [ ${server} -eq 102 ];then
 	begin 151 acrosspm
 elif [ ${server} -eq 104 ];then
-	begin 151 PM_app@123
+	begin 151 acrosspm
 elif [ ${server} -eq 106 ];then
 	begin 121 PM_app@123
 fi

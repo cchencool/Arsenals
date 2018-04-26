@@ -1,8 +1,15 @@
 ##ignore this file##
-Java/Workspace/.metadata/
-Java/Workspace/.metadata/.plugins/
-Java/Workspace/.recommenders/
-Java/IntelliJProjects/Tools/.idea/
+#Java/Workspace/.metadata/
+#Java/Workspace/.metadata/.plugins/
+#Java/Workspace/.recommenders/
+#Java/IntelliJProjects/Tools/.idea/
+.metadata/
+.plugins/
+.recommenders/
+.idea/
+.vscode/
+.mypy_cache/
+.target/
 .classpath
 .project
 .settings      
