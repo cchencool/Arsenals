@@ -9,7 +9,7 @@
 .idea/
 .vscode/
 .mypy_cache/
-.target/
+target/
 .classpath
 .project
 .settings      
