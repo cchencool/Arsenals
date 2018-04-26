@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<remoteQuery>
+	<analysis>
+		<algorithm class="com.inspur.pmv5.service.impl.report.analysisengine.service.v2.StandardQueryV2">
+			<parameter id="1">Monday</parameter>
+			<parameter id="UnionSplitOptimize">15</parameter>
+		</algorithm>
+		<datasource>
+			<molevel>f2c774d2f1d94a88823280a7d2e0d669</molevel>
+			<moview>f2c774d2f1d94a88823280a7d2e0d669;666502e3d05543b2a23e49977b9b077a</moview>
+			<timelevel type="M15" arithmetic="default" direct="0">
+			</timelevel>
+			<indicators>
+				<indicator id="45e697da126a4c1881e7de0f0c0076cd" type="0">
+					<displaysequence>1</displaysequence>
+					<unit>Times</unit>
+					<decima>3</decima>
+					<label>NCELLREL_HORTTOCH_OG</label>
+					<whmhArithmetic>SUM</whmhArithmetic>
+					<column table="IND_M15_755_1" db="pm4h_db">IND_M15_755_1_014</column>
+					<columnHive table="IND_M15_295" db="db">i15770</columnHive>
+					<arithmetics>
+						<arithmetic id="MO">SUM</arithmetic>
+						<arithmetic id="hourly">SUM</arithmetic>
+						<arithmetic id="daily">SUM</arithmetic>
+						<arithmetic id="multidays">SUM</arithmetic>
+					</arithmetics>
+					<indicatorSetID>676cf1241e7d466f91bd96356e8425da</indicatorSetID>
+				</indicator>
+				<indicator id="0dfce87aed8d4e819109cdf82bed3677" type="0">
+					<displaysequence>2</displaysequence>
+					<unit>Times</unit>
+					<decima>3</decima>
+					<label>NCELLREL_HOVERSUC_OG</label>
+					<whmhArithmetic>SUM</whmhArithmetic>
+					<column table="IND_M15_755_1" db="pm4h_db">IND_M15_755_1_001</column>
+					<columnHive table="IND_M15_295" db="db">i8135</columnHive>
+					<arithmetics>
+						<arithmetic id="MO">SUM</arithmetic>
+						<arithmetic id="hourly">SUM</arithmetic>
+						<arithmetic id="daily">SUM</arithmetic>
+						<arithmetic id="multidays">SUM</arithmetic>
+					</arithmetics>
+					<indicatorSetID>676cf1241e7d466f91bd96356e8425da</indicatorSetID>
+				</indicator>
+			</indicators>
+			<moinfos>
+				<moinfo id="062dd7abe65f4a2d8899999f67172cfc" refNameColumn="n46946" refIDColumn="r46946">
+					<objtable>obj_1288</objtable>
+					<vertable>obj_ver_1288</vertable>
+					<hiveTable>IND_M15_10</hiveTable>
+				</moinfo>
+				<moinfo id="666502e3d05543b2a23e49977b9b077a" refNameColumn="n47031" refIDColumn="r47031">
+					<objtable>obj_1238</objtable>
+					<vertable>obj_ver_1238</vertable>
+					<hiveTable>IND_M15_125</hiveTable>
+				</moinfo>
+				<moinfo id="f2c774d2f1d94a88823280a7d2e0d669" refNameColumn="n46964" refIDColumn="r46964">
+					<objtable>obj_1305</objtable>
+					<vertable>obj_ver_1305</vertable>
+					<hiveTable>IND_M15_295</hiveTable>
+				</moinfo>
+			</moinfos>
+			<attributes/>
+		</datasource>
+		<conditions>
+			<timerange>
+				<date type="specific">
+					<from>20180419</from>
+					<to>20180419</to>
+					<exclude>
+					</exclude>
+				</date>
+				<time type="all">
+					<hour>all</hour>
+				</time>
+				<holiday>all</holiday>
+			</timerange>
+			<orderby>
+				<displaysort>
+					<sort id="f2c774d2f1d94a88823280a7d2e0d669" type="objid" rule="asc" nullslast="false" order="2"/>
+					<sort id="time" type="time" rule="asc" nullslast="false" order="1"/>
+				</displaysort>
+			</orderby>
+			<filter>
+				<mocondition>
+					<moentity>
+						<morelations searchKey="f2c774d2f1d94a88823280a7d2e0d669:GL035">
+							<morelation>f2c774d2f1d94a88823280a7d2e0d669</morelation>
+							<table>
+							</table>
+							<objTable>
+							</objTable>
+							<morange molevel="f2c774d2f1d94a88823280a7d2e0d669">5891;5892</morange>
+							<condition rule="SEARCH" filterMotypeId="f2c774d2f1d94a88823280a7d2e0d669" attribute="OBJName" value="GL035" attrtype="String" relations="f2c774d2f1d94a88823280a7d2e0d669">
+							</condition>
+						</morelations>
+					</moentity>
+					<moattribute/>
+					<moexclusiontable>EXC_1488</moexclusiontable>
+				</mocondition>
+			</filter>
+			<orderbyflag>true</orderbyflag>
+			<isindicatoralias>true</isindicatoralias>
+			<isstandarttablesort>true</isstandarttablesort>
+		</conditions>
+		<output>
+			<displaymorelation/>
+			<displayfields>
+				<field id="time" type="time" sequence="1">Time</field>
+				<field id="f2c774d2f1d94a88823280a7d2e0d669" type="motype" sequence="2" alias="motype_2">2G Cell</field>
+				<field id="indicators" type="indicators" sequence="3">Indicators</field>
+			</displayfields>
+			<page>
+				<startnum>0</startnum>
+				<endnum>0</endnum>
+			</page>
+			<filepath>
+			</filepath>
+			<isordered>true</isordered>
+			<isfirstrow>true</isfirstrow>
+			<fetchsize>100</fetchsize>
+			<shortname>false</shortname>
+			<disableCache>false</disableCache>
+		</output>
+		<queryTimeStamp>20180424144500</queryTimeStamp>
+		<queryHiveParam>
+			<filename>ORGDATA_3506233039_1524552317020_235</filename>
+		</queryHiveParam>
+	</analysis>
+</remoteQuery>
