@@ -1,4 +1,4 @@
-package com.inspur.practice17.pkg11_21;
+package com.inspur.streamabout;
 
 import java.util.concurrent.*;
 import java.util.stream.*;

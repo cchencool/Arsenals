@@ -1,4 +1,4 @@
-package com.inspur.practice17.pkg09_25;
+package com.inspur.streamabout;
 
 import java.util.Arrays;
 import java.util.Collections;
