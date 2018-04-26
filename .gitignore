@@ -1,8 +1,5 @@
 ##ignore this file##
-#Java/Workspace/.metadata/
-#Java/Workspace/.metadata/.plugins/
-#Java/Workspace/.recommenders/
-#Java/IntelliJProjects/Tools/.idea/
+# ignore ide folders
 .metadata/
 .plugins/
 .recommenders/
@@ -10,9 +7,11 @@
 .vscode/
 .mypy_cache/
 target/
+
 .classpath
 .project
 .settings      
+*.iml
 ##filter databfile、sln file##
 *.mdb  
 *.ldb  
