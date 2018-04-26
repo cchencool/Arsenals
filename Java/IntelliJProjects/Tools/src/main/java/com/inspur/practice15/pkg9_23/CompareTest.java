@@ -1,4 +1,4 @@
-package com.inspur.bugfix;
+package com.inspur.practice15.pkg9_23;
 
 import java.util.ArrayList;
 import java.util.Collections;

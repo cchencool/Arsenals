@@ -1,4 +1,4 @@
-package com.chen.tools;
+package com.inspur.httpabout;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
