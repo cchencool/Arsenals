@@ -32,7 +32,6 @@ function processFile() {
             if [[ -n $new_jar && -f $new_jar ]]; then
                 rep_jar=`echo $new_jar | awk -F '/' '{print "/"$(NF-1)"/"$(NF)}'`
                 echo "find new jar: $rep_jar"
-                trans_cp_jar=`echo $cp_jar | sed 's/\//\\//g'`
                 replaceCP $cp_jar $rep_jar $file
             elif [[ -n $new_jar ]]; then
                 echo "find no new jar for jar: $regex_cp_jar" 
