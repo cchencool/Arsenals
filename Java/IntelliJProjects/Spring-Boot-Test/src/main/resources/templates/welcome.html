@@ -4,38 +4,13 @@
     <title>Spring Boot Thymeleaf Hello World示例</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <script type="text/javascript" src="webjars/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript" src="webjars/jquery/3.3.1-1/jquery.js"></script>
     <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
 
+    <script type="text/javascript" th:src="@{/js/func.js}"/>
+
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/>
-
-
-    <script type="text/javascript">
-
-        function doPost() {
-
-            data = {}
-            data["name"] = "zhang"
-            data["time"] = "now"
-
-            $.ajax({
-                type : "post",
-                url : "http://localhost:8080/init",
-                contentType : 'application/json;charset=UTF-8',
-                dataType : "json",
-                data: JSON.stringify(data),
-                success: function(msg){
-                    alert( "Data received: " + msg["result"] );
-                },
-                error: function(msg) {
-                    console.info(msg)
-                }
-            });
-        }
-
-    </script>
-
+    <link rel="stylesheet" th:src="@{/css/main.css}"/>
 
 
 </head>
@@ -61,11 +36,19 @@
         <h1>Spring Boot Web Thymeleaf示例</h1>
         <h2>
             <span th:text="'Message: ' + ${message}"></span>
-            <span th:text="'name: ' + ${name}"></span>
+            <span id="me" th:text="'name: ' + ${name}"></span>
         </h2>
     </div>
 
-    <button type="button" onclick="doPost()">ClickHere</button>
+    <button id="btn1" type="button">ClickHere_Btn1</button>
+    <p/>
+    <button id="btn2" type="button">ClickHere_Btn2</button>
+    <p/>
+
+    <!--<button id="btn1" type="button" onclick="doPost1()">ClickHere</button>-->
+    <!--<button id="btn2" type="button" onclick="doPost2()">ClickHere</button>-->
+
+    <a href="/init2?name=cc&amp;&amp;time=003">Here</a>
 
 
 </div>
