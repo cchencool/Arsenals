@@ -3,11 +3,13 @@ package hello;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Controller
 public class WelcomeController {
@@ -32,7 +34,12 @@ public class WelcomeController {
     public String init(@RequestBody Map<String, Object> params) {
 	    String name = "me";
 	    if (null != params) {
-	        name = Optional.ofNullable(params.get("name")).orElse("").toString();
+//	        name = Optional.ofNullable(params.get("name")).orElse("").toString();
+			if (null != params.get("name")) {
+				name = params.get("name").toString();
+			} else {
+				name = "";
+			}
         }
 
         String resStr = "hello, " + name + ".";
