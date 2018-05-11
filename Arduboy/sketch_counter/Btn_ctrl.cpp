@@ -1,7 +1,7 @@
 
-#include "Btn_ctrl.hpp"
 #include "Arduboy.h"
-#include "Arduino.h"
+#include "arduino.h"
+#include "Btn_ctrl.hpp"
 
 extern Arduboy *arduboy;
 
@@ -65,7 +65,13 @@ boolean Btn_ctrl::b_click()
 boolean Btn_ctrl::check_lock_flag()
 {
     
-    if (this->lock && arduboy->notPressed(A_BUTTON) == true && arduboy->notPressed(B_BUTTON) == true && arduboy->notPressed(UP_BUTTON) == true && arduboy->notPressed(DOWN_BUTTON) == true && arduboy->notPressed(RIGHT_BUTTON) == true && arduboy->notPressed(LEFT_BUTTON) == true)
+    if (this->lock 
+    && arduboy->notPressed(A_BUTTON) == true 
+    && arduboy->notPressed(B_BUTTON) == true 
+    && arduboy->notPressed(UP_BUTTON) == true 
+    && arduboy->notPressed(DOWN_BUTTON) == true 
+    && arduboy->notPressed(RIGHT_BUTTON) == true 
+    && arduboy->notPressed(LEFT_BUTTON) == true)
     {
         this->lock = false;
         return true;
