@@ -1,4 +1,8 @@
 ##ignore this file##
+
+# ignore arduboy libiaries
+Arduboy/libraries
+
 # ignore ide folders
 .metadata/
 .plugins/

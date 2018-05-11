@@ -30,6 +30,15 @@ void loop() {
 
   arduboy.clear();
 
+  arduboy.drawLine(0, 0, 5, 5, WHITE);
+  arduboy.drawLine(5, 5, 122, 5, WHITE);
+  arduboy.drawLine(5, 5, 5, 58, WHITE);
+  arduboy.drawLine(122, 5, 127, 0, WHITE);
+  arduboy.drawLine(122, 5, 122, 58, WHITE);
+  arduboy.drawLine(122, 58, 127, 63, WHITE);
+  arduboy.drawLine(5, 58, 122, 58, WHITE);
+  arduboy.drawLine(5, 58, 0, 63, WHITE);
+
   do_count();
 
   check_lock_free_flag();
