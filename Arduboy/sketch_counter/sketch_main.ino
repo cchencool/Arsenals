@@ -3,13 +3,13 @@
 #include "Arduboy.h"
 #include "Btn_ctrl.hpp"
 
-Arduboy *arduboy;
-Btn_ctrl *btn_ctrl;
+Arduboy *arduboy = new Arduboy;
+Btn_ctrl *btn_ctrl = new Btn_ctrl;
 
 PROGMEM const String hello_str = "hello, my friend.";
 
-int count = 0;
-int count_times = 1;
+long count = 0l;
+long count_times = 1l;
 
 const int lock_free_frame_limit = 15;
 int lock_free_frame_count = 0;
@@ -47,7 +47,7 @@ void loop()
   boolean is_b_click = btn_ctrl->b_click();
   if (is_b_click)
   {
-    count = 521;
+    count = 5211314;
   }
 
   arduboy->setCursor(10, 20);
@@ -112,7 +112,7 @@ void do_count()
   }
 
   // func
-  if ((arduboy->pressed(A_BUTTON) == true || arduboy->pressed(B_BUTTON) == true) && (!lock || lock_free))
+  if (arduboy->pressed(A_BUTTON) == true && (!lock || lock_free))
   {
     count = 0;
     count_times = 1;
@@ -124,7 +124,12 @@ void do_count()
 void check_lock_free_flag()
 {
 
-  if (arduboy->pressed(A_BUTTON) == true || arduboy->pressed(B_BUTTON) == true || arduboy->pressed(UP_BUTTON) == true || arduboy->pressed(DOWN_BUTTON) == true || arduboy->pressed(RIGHT_BUTTON) == true || arduboy->pressed(LEFT_BUTTON) == true)
+  if (arduboy->pressed(A_BUTTON) == true 
+  || arduboy->pressed(B_BUTTON) == true 
+  || arduboy->pressed(UP_BUTTON) == true 
+  || arduboy->pressed(DOWN_BUTTON) == true 
+  || arduboy->pressed(RIGHT_BUTTON) == true 
+  || arduboy->pressed(LEFT_BUTTON) == true)
   {
     lock_free_frame_count++;
   }
@@ -139,7 +144,12 @@ void check_lock_free_flag()
 void check_lock_flag()
 {
 
-  if (arduboy->notPressed(A_BUTTON) == true && arduboy->notPressed(B_BUTTON) == true && arduboy->notPressed(UP_BUTTON) == true && arduboy->notPressed(DOWN_BUTTON) == true && arduboy->notPressed(RIGHT_BUTTON) == true && arduboy->notPressed(LEFT_BUTTON) == true)
+  if (arduboy->notPressed(A_BUTTON) == true 
+  && arduboy->notPressed(B_BUTTON) == true 
+  && arduboy->notPressed(UP_BUTTON) == true 
+  && arduboy->notPressed(DOWN_BUTTON) == true 
+  && arduboy->notPressed(RIGHT_BUTTON) == true 
+  && arduboy->notPressed(LEFT_BUTTON) == true)
   {
     lock = false;
     lock_free = false;
