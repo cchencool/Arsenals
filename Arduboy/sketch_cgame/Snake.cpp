@@ -1,9 +1,9 @@
 
 #include <arduino.h>
-#include "Arduboy.h"
+#include "Arduboy2.h"
 #include "Snake.hpp"
 
-Snake::Snake(int length) : length(length)
+Snake::Snake(uint8_t length) : length(length)
 {
 
     this->status = INACTIVE;
@@ -12,7 +12,7 @@ Snake::Snake(int length) : length(length)
     if (length > 0)
     {
 
-        for (int i = 0; i < length; i++)
+        for (uint8_t i = 0; i < length; i++)
         {
             Point p;
             p.x = 5 + i;
@@ -86,7 +86,7 @@ boolean Snake::turn_to(Direction turn_drc)
     return trun_result;
 }
 
-boolean Snake::move(int step)
+boolean Snake::move(uint8_t step)
 {
     if (step <= 0 || this->status == INACTIVE)
     {
@@ -164,7 +164,7 @@ boolean Snake::move(int step)
     }
     else
     {
-        for (int i = 0; i < step; i++)
+        for (uint8_t i = 0; i < step; i++)
         {
             has_move = this->move(1);
         }
@@ -173,9 +173,9 @@ boolean Snake::move(int step)
     return has_move;
 }
 
-void Snake::show(Arduboy *Obj, void (Arduboy::*p_call)(int, int, uint8_t))
+void Snake::show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint8_t))
 {
-    for (int i = 0; i < this->body_points.size(); i++)
+    for (uint8_t i = 0; i < this->body_points.size(); i++)
     {
         (Obj->*p_call)(this->body_points[i].x, this->body_points[i].y, WHITE);
     }

@@ -1,9 +1,9 @@
 
-#include "Arduboy.h"
+#include "Arduboy2.h"
 #include "arduino.h"
 #include "Btn_ctrl.hpp"
 
-extern Arduboy *arduboy;
+extern Arduboy2 *arduboy;
 
 enum Buttons
 {

@@ -1,18 +1,17 @@
 
 #include <avr/pgmspace.h>
 #include <ArduinoSTL.h>
-#include "Arduboy.h"
+#include "Arduboy2.h"
 #include "arduino.h"
-#include "Menu.hpp"
+#include "Navigator.hpp"
 #include "Btn_ctrl.hpp"
 #include "Snake.hpp"
 #include "Counter.hpp"
 
-Arduboy *arduboy = new Arduboy;
+Arduboy2 *arduboy = new Arduboy2;
 Btn_ctrl *btn_ctrl = new Btn_ctrl;
-Menu *menu = new Menu;
+Navigator *navigator = new Navigator;
 Snake *snake = new Snake(10);
-// Counter *counter = new Counter(arduboy);
 Counter *counter = new Counter();
 
 void setup()
@@ -20,6 +19,8 @@ void setup()
   // put your setup code here, to run once:
 
   arduboy->begin();
+
+  Serial.begin(9600);
 
   arduboy->setFrameRate(15);
 }
@@ -34,26 +35,26 @@ void loop()
 
   arduboy->clear();
 
-  if (!menu->get_has_make_choice())
+  if (!navigator->get_has_make_choice())
   {
-    menu->show_menu();
+    navigator->show_navigator();
   }
   else
   {
-    if (menu->get_func_choice() == SNAKE)
+    if (navigator->get_func_choice() == SNAKE)
     {
-      menu->func_snake();
+      navigator->func_snake();
     }
-    else if (menu->get_func_choice() == COUNTER)
+    else if (navigator->get_func_choice() == COUNTER)
     {
-      menu->func_count();
+      navigator->func_count();
     }
   }
 
-  if ( menu->get_has_make_choice() && btn_ctrl->b_click())
+  if ( navigator->get_has_make_choice() && btn_ctrl->b_click())
   {
-    menu->stop_game();
-    menu->set_has_made_choice(false);
+    navigator->stop_game();
+    navigator->set_has_made_choice(false);
   }
 
   arduboy->display();
