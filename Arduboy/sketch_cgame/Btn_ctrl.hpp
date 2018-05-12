@@ -16,8 +16,15 @@ public:
     boolean b_click();
 
 private:
-    boolean lock;
-    boolean check_lock_flag();
+    boolean lock_up;
+    boolean lock_down;
+    boolean lock_left;
+    boolean lock_right;
+    boolean lock_a;
+    boolean lock_b;
+
+    boolean check_press(boolean &btn_locker, uint8_t ard_button);
+    boolean check_release(boolean &btn_locker, uint8_t ard_button);
 
 };
 

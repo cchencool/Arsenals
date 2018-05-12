@@ -52,22 +52,35 @@ boolean Snake::turn_to(Direction turn_drc)
 {
 
     boolean trun_result = false;
+    Direction reverse_drc;
+
     switch (turn_drc)
     {
     case UP:
-        trun_result = this->check_direction(this->head_drc, turn_drc, UP);
+        reverse_drc = DOWN;
         break;
     case DOWN:
-        trun_result = this->check_direction(this->head_drc, turn_drc, DOWN);
+        reverse_drc = UP;
         break;
     case LEFT:
-        trun_result = this->check_direction(this->head_drc, turn_drc, LEFT);
+        reverse_drc = RIGHT;
         break;
     case RIGHT:
-        trun_result = this->check_direction(this->head_drc, turn_drc, RIGHT);
+        reverse_drc = LEFT;
         break;
+
     default:
         break;
+    }
+
+    if (this->head_drc != turn_drc && this->head_drc != reverse_drc)
+    {
+        this->head_drc = turn_drc;
+        trun_result = true;
+    }
+    else
+    {
+        trun_result = false;
     }
 
     return trun_result;
@@ -85,14 +98,13 @@ boolean Snake::move(int step)
     if (step == 1)
     {
         boolean one_mv_result = true;
-        this->body_points.erase(this->body_points.begin());
         Point p_head = this->body_points[this->body_points.size() - 1];
         Point p_for;
 
         switch (this->head_drc)
         {
         case UP:
-            if (p_head.y != 0)
+            if (p_head.y > 0)
             {
                 p_for.x = p_head.x;
                 p_for.y = p_head.y - 1;
@@ -104,7 +116,7 @@ boolean Snake::move(int step)
             }
             break;
         case DOWN:
-            if (p_head.y != HEIGHT - 1)
+            if (p_head.y < HEIGHT - 1)
             {
                 p_for.x = p_head.x;
                 p_for.y = p_head.y + 1;
@@ -116,7 +128,7 @@ boolean Snake::move(int step)
             }
             break;
         case LEFT:
-            if (p_head.x != 0)
+            if (p_head.x > 0)
             {
                 p_for.x = p_head.x - 1;
                 p_for.y = p_head.y;
@@ -128,7 +140,7 @@ boolean Snake::move(int step)
             }
             break;
         case RIGHT:
-            if (p_head.x != WIDTH - 1)
+            if (p_head.x < WIDTH - 1)
             {
                 p_for.x = p_head.x + 1;
                 p_for.y = p_head.y;
@@ -146,6 +158,7 @@ boolean Snake::move(int step)
         if (one_mv_result)
         {
             has_move = true;
+            this->body_points.erase(this->body_points.begin());
             this->body_points.push_back(p_for);
         }
     }
@@ -165,39 +178,5 @@ void Snake::show(Arduboy *Obj, void (Arduboy::*p_call)(int, int, uint8_t))
     for (int i = 0; i < this->body_points.size(); i++)
     {
         (Obj->*p_call)(this->body_points[i].x, this->body_points[i].y, WHITE);
-    }
-};
-
-boolean Snake::check_direction(Direction &head_drc, Direction turn_drc, Direction check_drc)
-{
-    Direction reverse_drc;
-
-    switch (check_drc)
-    {
-    case UP:
-        reverse_drc = DOWN;
-        break;
-    case DOWN:
-        reverse_drc = UP;
-        break;
-    case LEFT:
-        reverse_drc = RIGHT;
-        break;
-    case RIGHT:
-        reverse_drc = LEFT;
-        break;
-
-    default:
-        break;
-    }
-
-    if (turn_drc == check_drc && head_drc != check_drc && head_drc != reverse_drc)
-    {
-        head_drc = UP;
-        return true;
-    }
-    else
-    {
-        return false;
     }
 }

@@ -10,8 +10,10 @@
 
 Arduboy *arduboy = new Arduboy;
 Btn_ctrl *btn_ctrl = new Btn_ctrl;
-Snake *snake;
-
+Menu *menu = new Menu;
+Snake *snake = new Snake(10);
+// Counter *counter = new Counter(arduboy);
+Counter *counter = new Counter();
 
 void setup()
 {
@@ -32,25 +34,26 @@ void loop()
 
   arduboy->clear();
 
-  if (!has_made_choice)
+  if (!menu->get_has_make_choice())
   {
-    show_menu();
+    menu->show_menu();
   }
   else
   {
-    if (func_choice == SNAKE)
+    if (menu->get_func_choice() == SNAKE)
     {
-      func_snake();
+      menu->func_snake();
     }
-    else if (func_choice == COUNTER)
+    else if (menu->get_func_choice() == COUNTER)
     {
-      func_count();
+      menu->func_count();
     }
   }
 
-  if (arduboy->pressed(A_BUTTON) == true && arduboy->pressed(B_BUTTON) == true)
+  if ( menu->get_has_make_choice() && btn_ctrl->b_click())
   {
-    has_made_choice = false;
+    menu->stop_game();
+    menu->set_has_made_choice(false);
   }
 
   arduboy->display();
