@@ -1,10 +1,11 @@
 
-#if !defined(Counter_hpp)
-#define Counter_hpp
+#if !defined(Func_counter_hpp)
+#define Func_counter_hpp
 
 #include <ArduinoSTL.h>
 #include "Arduboy2.h"
 #include "arduino.h"
+#include "Base_func.hpp"
 
 extern Btn_ctrl *btn_ctrl;
 extern Arduboy2 *arduboy;
@@ -12,7 +13,7 @@ extern Arduboy2 *arduboy;
 // for func counter.
 PROGMEM const String hello_str = "hello, my darling.";
 
-class Counter
+class Func_counter: public Base_func
 {
 
   private:
@@ -26,7 +27,7 @@ class Counter
     boolean lock_free = false;
 
   public:
-    // Counter(Arduboy2 *arduboy)
+    // Func_counter(Arduboy2 *arduboy)
     // {
     //   this->arduboy = arduboy;
     // }
@@ -46,7 +47,7 @@ class Counter
         this->count = count;
     }
 
-    void show()
+    void play()
     {
         this->draw_square();
 
@@ -64,6 +65,12 @@ class Counter
 
         arduboy->setCursor(10, 40);
         arduboy->print(String("count_times:  ") + String(this->get_count_times()));
+    }
+
+    void exit(Base_func **p)
+    {
+        this->reset_counter();
+        Base_func::exit(p);
     }
 
     void draw_square()
@@ -154,4 +161,4 @@ class Counter
         }
     }
 };
-#endif // Counter_hpp
+#endif // Func_counter_hpp

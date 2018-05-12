@@ -5,14 +5,18 @@
 #include "arduino.h"
 #include "Navigator.hpp"
 #include "Btn_ctrl.hpp"
-#include "Snake.hpp"
-#include "Counter.hpp"
+#include "Func_snake.hpp"
+#include "Func_counter.hpp"
+#include "Func_settings.hpp"
 
 Arduboy2 *arduboy = new Arduboy2;
 Btn_ctrl *btn_ctrl = new Btn_ctrl;
 Navigator *navigator = new Navigator;
-Snake *snake = new Snake(10);
-Counter *counter = new Counter();
+
+// shold use Base_func
+Base_func *func_snake = new Func_snake;
+Base_func *func_counter = new Func_counter;
+Base_func *func_settings = new Func_settings;
 
 void setup()
 {
@@ -20,7 +24,14 @@ void setup()
 
   arduboy->begin();
 
-  Serial.begin(9600);
+  // Serial.begin(9600);
+
+  // while(!Serial)
+  // {
+  //   ;
+  // }
+
+  // Serial.print("System, start up...");
 
   arduboy->setFrameRate(15);
 }
@@ -43,15 +54,19 @@ void loop()
   {
     if (navigator->get_func_choice() == SNAKE)
     {
-      navigator->func_snake();
+      navigator->play_snake();
     }
     else if (navigator->get_func_choice() == COUNTER)
     {
-      navigator->func_count();
+      navigator->play_count();
+    }
+    else if (navigator->get_func_choice() == SETTINGS)
+    {
+      navigator->play_settings();
     }
   }
 
-  if ( navigator->get_has_make_choice() && btn_ctrl->b_click())
+  if (navigator->get_has_make_choice() && btn_ctrl->b_click())
   {
     navigator->stop_game();
     navigator->set_has_made_choice(false);

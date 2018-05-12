@@ -1,41 +1,53 @@
 
-#if !defined(Settings_hpp)
-#define Settings_hpp
+#if !defined(Func_settings_hpp)
+#define Func_settings_hpp
 
 #include <ArduinoSTL.h>
 #include "Arduboy2.h"
 #include "arduino.h"
+#include "Base_func.hpp"
 
 extern Btn_ctrl *btn_ctrl;
 extern Arduboy2 *arduboy;
 
 // for func counter.
 PROGMEM const String settings_str_title = "settings.";
-PROGMEM const String settings_str_snake_initial_length = "snake_length: ";
+PROGMEM const String settings_str_snaker_initial_length = "snaker_length: ";
+PROGMEM const String settings_str_saved = "settings saved!";
 
-class Settings
+class Func_settings: public Base_func
 {
 
   private:
-    uint8_t snake_initial_length;   // should store in EEPROM
+    uint8_t snaker_initial_length;   // should store in EEPROM
   
   public:
 
-    Settings()
+    Func_settings()
     {
-        this->snake_initial_length = 10;
+        this->snaker_initial_length = 30;
     }
 
-    void show()
+    void play()
     {
         this->draw_square();
 
-        arduboy->setCursor(10, 20);
+        arduboy->setCursor(20, 20);
         arduboy->print(settings_str_title);
 
         arduboy->setCursor(10, 30);
-        arduboy->print(settings_str_snake_initial_length);
+        arduboy->print(settings_str_snaker_initial_length + String(this->snaker_initial_length));
 
+        if (btn_ctrl->a_click())
+        {
+            arduboy->setCursor(10, 40);
+            arduboy->print(settings_str_saved);   
+        }
+
+    }
+
+    void exit(Base_func **p)
+    {
     }
 
     void draw_square()
@@ -50,6 +62,11 @@ class Settings
         arduboy->drawLine(5, 58, 0, 63, WHITE);
     }
 
+    uint8_t get_config()
+    {
+        return this->snaker_initial_length;
+    }
+
     boolean store()
     {
 
@@ -60,4 +77,4 @@ class Settings
 
     }
 };
-#endif // Settings_hpp
+#endif // Func_settings_hpp

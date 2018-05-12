@@ -6,23 +6,27 @@
 #include <ArduinoSTL.h>
 #include "Arduboy2.h"
 #include "Btn_ctrl.hpp"
-#include "Snake.hpp"
-#include "Counter.hpp"
+#include "Base_func.hpp"
+#include "Func_snake.hpp"
+#include "Func_counter.hpp"
 
 extern Btn_ctrl *btn_ctrl;
-extern Snake *snake;
 extern Arduboy2 *arduboy;
-extern Counter *counter;
+extern Base_func *func_snake;
+extern Base_func *func_counter;
+extern Base_func *func_settings;
 
 // for navigator.
 PROGMEM const String navigator_str = "Please choose: ";
-PROGMEM const String navigator_game_choice_a = "Press Up: Snake.";
-PROGMEM const String navigator_game_choice_b = "Press Dn: Counter.";
+PROGMEM const String navigator_game_choice_a = "Press Up: snake.";
+PROGMEM const String navigator_game_choice_b = "Press Dn: counter.";
+PROGMEM const String navigator_game_choice_c = "Press  A: settings.";
 
 enum Support_func
 {
     SNAKE,
-    COUNTER
+    COUNTER,
+    SETTINGS
 };
 
 class Navigator
@@ -64,61 +68,61 @@ public:
         arduboy->setCursor(2, 40);
         arduboy->print(navigator_game_choice_b);
 
+        arduboy->setCursor(2, 50);
+        arduboy->print(navigator_game_choice_c);
+
+        // game A - Func_snake.
         if (btn_ctrl->down_click() && !has_made_choice)
         {
             func_choice = COUNTER;
             has_made_choice = true;
         }
 
+        // game B - Func_counter
         if (btn_ctrl->up_click() && !has_made_choice)
         {
             func_choice = SNAKE;
             has_made_choice = true;
         }
+
+        // func C - Func_settings
+        if (btn_ctrl->a_click() && !has_made_choice)
+        {
+            func_choice = SETTINGS;
+            has_made_choice = true;
+        }
     }
 
-    // play game a. snake.
-    void func_snake()
+    // play game a. func_snake.
+    void play_snake()
     {
-        if (snake == NULL)
+        if (func_snake == NULL)
         {
-            Snake *snake_new = new Snake(10);   // read from Settings.
-            snake = snake_new;
+            Func_snake *func_snake_new = new Func_snake();
+            func_snake = func_snake_new;
         }
 
-        if (btn_ctrl->up_click())
-        {
-            snake->turn_to(UP);
-        }
-        else if (btn_ctrl->down_click())
-        {
-            snake->turn_to(DOWN);
-        }
-        else if (btn_ctrl->left_click())
-        {
-            snake->turn_to(LEFT);
-        }
-        else if (btn_ctrl->right_click())
-        {
-            snake->turn_to(RIGHT);
-        }
-
-        snake->start();
-        snake->move(1);
-
-        snake->show(arduboy, &Arduboy2::drawPixel);
+        func_snake->play();
     }
 
     // play game b. counter.
-    void func_count()
+    void play_count()
     {
-        if (counter == NULL)
+        if (func_counter == NULL)
         {
-            Counter *counter_new = new Counter();
-            counter = counter_new;
+            Func_counter *func_counter_new = new Func_counter();
+            func_counter = func_counter_new;
         }
 
-        counter->show();
+        func_counter->play();
+    }
+
+    void play_settings()
+    {
+        if (func_settings != NULL)
+        {
+            func_settings->play();
+        }
     }
 
     void stop_game()
@@ -127,18 +131,24 @@ public:
         {
             if (func_choice == SNAKE)
             {
-                if (snake != NULL)
+                if (func_snake != NULL)
                 {
-                    snake->stop();
-                    delete snake;
-                    snake = NULL;
+                    func_snake->exit(&func_snake);
                 }
             }
             else if (func_choice == COUNTER)
             {
-                counter->reset_counter();
-                delete counter;
-                counter = NULL;
+                if (func_counter != NULL)
+                {
+                    func_counter->exit(&func_counter);
+                }
+            }
+            else if (func_choice == SETTINGS)
+            {
+                if (func_settings != NULL)
+                {
+                    func_settings->exit(&func_settings);
+                }
             }
         }
     }

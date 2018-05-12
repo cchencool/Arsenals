@@ -1,7 +1,7 @@
 
 
-#if !defined(Snake_hpp)
-#define Snake_hpp
+#if !defined(Snaker_hpp)
+#define Snaker_hpp
 
 #include <arduino.h>
 #include <ArduinoSTL.h>
@@ -27,7 +27,7 @@ enum Status
     INACTIVE
 };
 
-class Snake
+class Snaker
 {
 
   private:
@@ -38,7 +38,7 @@ class Snake
     // boolean rezise(int8_t length);
 
   public:
-    Snake(uint8_t length);
+    Snaker(uint8_t length);
     boolean start();
     boolean stop();
     boolean turn_to(Direction turn_drc);
@@ -48,4 +48,4 @@ class Snake
     void show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint8_t));
 };
 
-#endif // Snake_hpp
+#endif // Snaker_hpp
