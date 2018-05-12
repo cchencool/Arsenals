@@ -4,17 +4,20 @@
 #define Navigator_hpp
 
 #include <ArduinoSTL.h>
+#include <avr/pgmspace.h>
 #include "Arduboy2.h"
 #include "Btn_ctrl.hpp"
 #include "Base_func.hpp"
 #include "Func_snake.hpp"
 #include "Func_counter.hpp"
+#include "Snaker.hpp"
 
 extern Btn_ctrl *btn_ctrl;
 extern Arduboy2 *arduboy;
 extern Base_func *func_snake;
 extern Base_func *func_counter;
 extern Base_func *func_settings;
+extern boolean is_error;
 
 // for navigator.
 PROGMEM const String navigator_str = "Please choose: ";
@@ -31,11 +34,11 @@ enum Support_func
 
 class Navigator
 {
-private:
+  private:
     boolean has_made_choice = false;
     Support_func func_choice;
 
-public:
+  public:
     Navigator()
     {
         this->func_choice = COUNTER;
@@ -63,7 +66,7 @@ public:
         arduboy->print(navigator_str);
 
         arduboy->setCursor(2, 30);
-        arduboy->print(navigator_game_choice_a);
+        arduboy->print(navigator_game_choice_a + String(sizeof(Snaker)));
 
         arduboy->setCursor(2, 40);
         arduboy->print(navigator_game_choice_b);
@@ -98,11 +101,16 @@ public:
     {
         if (func_snake == NULL)
         {
-            Func_snake *func_snake_new = new Func_snake();
-            func_snake = func_snake_new;
+            func_snake = new Func_snake();
         }
-
-        func_snake->play();
+        if (func_snake == NULL)
+        {
+            is_error = true;
+        }
+        else
+        {
+            func_snake->play();
+        }
     }
 
     // play game b. counter.
@@ -110,16 +118,31 @@ public:
     {
         if (func_counter == NULL)
         {
-            Func_counter *func_counter_new = new Func_counter();
-            func_counter = func_counter_new;
+            func_counter = new Func_counter();
         }
 
-        func_counter->play();
+        if (func_counter == NULL)
+        {
+            is_error = true;
+        }
+        else
+        {
+            func_counter->play();
+        }
     }
 
     void play_settings()
     {
-        if (func_settings != NULL)
+        if (func_settings == NULL)
+        {
+            func_settings = new Func_settings();
+        }
+
+        if (func_settings == NULL)
+        {
+            is_error = true;
+        }
+        else
         {
             func_settings->play();
         }

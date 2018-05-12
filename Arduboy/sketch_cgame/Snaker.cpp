@@ -8,18 +8,36 @@ Snaker::Snaker(uint8_t length) : length(length)
 
     this->status = INACTIVE;
     this->head_drc = RIGHT;
+    
+    // this->p_for = new Point;
 
     if (length > 0)
     {
-
+        Point *p;
         for (uint8_t i = 0; i < length; i++)
         {
-            Point p;
-            p.x = 5 + i;
-            p.y = 5 + i;
+            p = new Point;
+            p->x = 5 + i;
+            p->y = 5 + i;
             this->body_points.push_back(p);
         }
     }
+}
+
+Snaker::~Snaker()
+{
+    for (uint8_t i = 0; i < this->body_points.size(); i++)
+    {
+        delete body_points[i];
+    }
+    body_points.clear();
+    // delete this->p_for;
+    // this->p_for = NULL;
+}
+
+Status Snaker::get_status()
+{
+    return this->status;
 }
 
 boolean Snaker::start()
@@ -50,6 +68,10 @@ boolean Snaker::stop()
 
 boolean Snaker::turn_to(Direction turn_drc)
 {
+    if (this->status == INACTIVE)
+    {
+        return false;
+    }
 
     boolean trun_result = false;
     Direction reverse_drc;
@@ -86,6 +108,84 @@ boolean Snaker::turn_to(Direction turn_drc)
     return trun_result;
 }
 
+// boolean Snaker::move_one()
+// {
+//     if (this->status == INACTIVE)
+//     {
+//         return false;
+//     }
+
+//     boolean has_move = false;
+
+//     Point *p_head = this->body_points[this->body_points.size() - 1];
+
+//     std::vector<Point*>::iterator vec_itr = this->body_points.begin();
+
+//     switch (this->head_drc)
+//     {
+//     case UP:
+//         if (p_head->y > 0)
+//         {
+//             while (vec_itr != this->body_points.end()) {
+//                 (*vec_itr)->y --;
+//                 vec_itr++;
+//             }
+//         }
+//         else
+//         {
+//             this->stop();
+//             has_move = false;
+//         }
+//         break;
+//     case DOWN:
+//         if (p_head->y < HEIGHT - 1)
+//         {
+//             while (vec_itr != this->body_points.end()) {
+//                 (*vec_itr)->y ++;
+//                 vec_itr++;
+//             }
+//         }
+//         else
+//         {
+//             this->stop();
+//             has_move = false;
+//         }
+//         break;
+//     case LEFT:
+//         if (p_head->x > 0)
+//         {
+//             while (vec_itr != this->body_points.end()) {
+//                 (*vec_itr)->x --;
+//                 vec_itr++;
+//             }
+//         }
+//         else
+//         {
+//             this->stop();
+//             has_move = false;
+//         }
+//         break;
+//     case RIGHT:
+//         if (p_head->x < WIDTH - 1)
+//         {
+//             while (vec_itr != this->body_points.end()) {
+//                 (*vec_itr)->x ++;
+//                 vec_itr++;
+//             }
+//         }
+//         else
+//         {
+//             this->stop();
+//             has_move = false;
+//         }
+//         break;
+//     default:
+//         break;
+//     }
+
+//     return has_move;
+// }
+
 boolean Snaker::move(uint8_t step)
 {
     if (step <= 0 || this->status == INACTIVE)
@@ -98,16 +198,17 @@ boolean Snaker::move(uint8_t step)
     if (step == 1)
     {
         boolean one_mv_result = true;
-        Point p_head = this->body_points[this->body_points.size() - 1];
-        Point p_for;
+        Point *p_head = this->body_points[this->body_points.size() - 1];
+        Point *p_for = this->body_points[0];
+        // Point *p_for = new Point;
 
         switch (this->head_drc)
         {
         case UP:
-            if (p_head.y > 0)
+            if (p_head->y > 0)
             {
-                p_for.x = p_head.x;
-                p_for.y = p_head.y - 1;
+                p_for->x = p_head->x;
+                p_for->y = p_head->y - 1;
             }
             else
             {
@@ -116,10 +217,10 @@ boolean Snaker::move(uint8_t step)
             }
             break;
         case DOWN:
-            if (p_head.y < HEIGHT - 1)
+            if (p_head->y < HEIGHT - 1)
             {
-                p_for.x = p_head.x;
-                p_for.y = p_head.y + 1;
+                p_for->x = p_head->x;
+                p_for->y = p_head->y + 1;
             }
             else
             {
@@ -128,10 +229,10 @@ boolean Snaker::move(uint8_t step)
             }
             break;
         case LEFT:
-            if (p_head.x > 0)
+            if (p_head->x > 0)
             {
-                p_for.x = p_head.x - 1;
-                p_for.y = p_head.y;
+                p_for->x = p_head->x - 1;
+                p_for->y = p_head->y;
             }
             else
             {
@@ -140,10 +241,10 @@ boolean Snaker::move(uint8_t step)
             }
             break;
         case RIGHT:
-            if (p_head.x < WIDTH - 1)
+            if (p_head->x < WIDTH - 1)
             {
-                p_for.x = p_head.x + 1;
-                p_for.y = p_head.y;
+                p_for->x = p_head->x + 1;
+                p_for->y = p_head->y;
             }
             else
             {
@@ -158,6 +259,7 @@ boolean Snaker::move(uint8_t step)
         if (one_mv_result)
         {
             has_move = true;
+            // delete body_points[0];
             this->body_points.erase(this->body_points.begin());
             this->body_points.push_back(p_for);
         }
@@ -167,6 +269,7 @@ boolean Snaker::move(uint8_t step)
         for (uint8_t i = 0; i < step; i++)
         {
             has_move = this->move(1);
+            // has_move = this->move_one();
         }
     }
 
@@ -177,6 +280,10 @@ void Snaker::show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint
 {
     for (uint8_t i = 0; i < this->body_points.size(); i++)
     {
-        (Obj->*p_call)(this->body_points[i].x, this->body_points[i].y, WHITE);
+        (Obj->*p_call)(this->body_points[i]->x, this->body_points[i]->y, WHITE);
     }
+
+    // print score. (mem cost approximately).
+    Obj->setCursor(0, 55);
+    Obj->print(String(this->body_points.size() * sizeof(Point) + sizeof(std::vector<Point*>)));
 }

@@ -14,9 +14,13 @@ Btn_ctrl *btn_ctrl = new Btn_ctrl;
 Navigator *navigator = new Navigator;
 
 // shold use Base_func
-Base_func *func_snake = new Func_snake;
-Base_func *func_counter = new Func_counter;
-Base_func *func_settings = new Func_settings;
+Base_func *func_snake;    // = new Func_snake;
+Base_func *func_counter;  // = new Func_counter;
+Base_func *func_settings; // = new Func_settings;
+
+PROGMEM const String error_str = "error occur!";
+
+boolean is_error = false;
 
 void setup()
 {
@@ -46,27 +50,36 @@ void loop()
 
   arduboy->clear();
 
-  if (!navigator->get_has_make_choice())
+  if (is_error)
   {
-    navigator->show_navigator();
+    arduboy->setCursor(50, 50);
+    arduboy->print(error_str);
   }
   else
   {
-    if (navigator->get_func_choice() == SNAKE)
+
+    if (!navigator->get_has_make_choice())
     {
-      navigator->play_snake();
+      navigator->show_navigator();
     }
-    else if (navigator->get_func_choice() == COUNTER)
+    else
     {
-      navigator->play_count();
-    }
-    else if (navigator->get_func_choice() == SETTINGS)
-    {
-      navigator->play_settings();
+      if (navigator->get_func_choice() == SNAKE)
+      {
+        navigator->play_snake();
+      }
+      else if (navigator->get_func_choice() == COUNTER)
+      {
+        navigator->play_count();
+      }
+      else if (navigator->get_func_choice() == SETTINGS)
+      {
+        navigator->play_settings();
+      }
     }
   }
 
-  if (navigator->get_has_make_choice() && btn_ctrl->b_click())
+  if ((navigator->get_has_make_choice() || is_error) && btn_ctrl->b_click())
   {
     navigator->stop_game();
     navigator->set_has_made_choice(false);

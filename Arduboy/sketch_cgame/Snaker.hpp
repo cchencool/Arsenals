@@ -32,16 +32,20 @@ class Snaker
 
   private:
     uint8_t length;
-    std::vector<Point> body_points;
+    std::vector<Point*> body_points;    // begin() is the tail. the last element is the head.
     Direction head_drc;
     Status status;
+    // Point *p_for;   // temp var to transfer move.
     // boolean rezise(int8_t length);
 
   public:
     Snaker(uint8_t length);
+    ~Snaker();
+    Status get_status();
     boolean start();
     boolean stop();
     boolean turn_to(Direction turn_drc);
+    // boolean move_one();
     boolean move(uint8_t step);
     boolean grow(uint8_t length);
     // boolean shrink(uint8_t length);

@@ -3,6 +3,7 @@
 #define Func_settings_hpp
 
 #include <ArduinoSTL.h>
+#include <avr/pgmspace.h>
 #include "Arduboy2.h"
 #include "arduino.h"
 #include "Base_func.hpp"
