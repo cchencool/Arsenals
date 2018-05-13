@@ -117,10 +117,10 @@ class Func_snake : public Base_func
 
     void draw_square()
     {
-        arduboy->drawLine(0, 0, WIDTH - BODER_WIDTH, 0, WHITE);
-        arduboy->drawLine(0, 0, 0, HEIGHT - BODER_WIDTH, WHITE);
-        arduboy->drawLine(WIDTH - BODER_WIDTH, 0, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);
-        arduboy->drawLine(0, HEIGHT - BODER_WIDTH, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(0, 0, WIDTH - BODER_WIDTH, 0, WHITE); // -(up)
+        arduboy->drawLine(0, 0, 0, HEIGHT - BODER_WIDTH, WHITE);    // |(left)
+        arduboy->drawLine(WIDTH - BODER_WIDTH, 0, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);    // |(right)
+        arduboy->drawLine(0, HEIGHT - BODER_WIDTH, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);   // -(down)
     }
 };
 

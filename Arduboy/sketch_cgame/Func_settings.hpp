@@ -12,7 +12,7 @@ extern Btn_ctrl *btn_ctrl;
 extern Arduboy2 *arduboy;
 
 // for func counter.
-PROGMEM const String settings_str_title = "settings.";
+PROGMEM const String settings_str_title = "settings *";
 PROGMEM const String settings_str_snaker_initial_length = "snaker_length: ";
 PROGMEM const String settings_str_saved = "settings saved!";
 
@@ -33,7 +33,8 @@ class Func_settings: public Base_func
     {
         this->draw_square();
 
-        arduboy->setCursor(20, 20);
+        arduboy->setCursor(40, 10);
+        // arduboy->setCursor(35, 10);
         arduboy->print(settings_str_title);
 
         arduboy->setCursor(10, 30);

@@ -12,6 +12,8 @@
 #include "Func_counter.hpp"
 #include "Snaker.hpp"
 
+#define STR_START_X 6
+
 extern Btn_ctrl *btn_ctrl;
 extern Arduboy2 *arduboy;
 extern Base_func *func_snake;
@@ -62,16 +64,18 @@ class Navigator
     // display navigator.
     void show_navigator()
     {
-        arduboy->setCursor(2, 10);
+        draw_square();
+
+        arduboy->setCursor(STR_START_X + 15, 10);
         arduboy->print(navigator_str);
 
-        arduboy->setCursor(2, 30);
+        arduboy->setCursor(STR_START_X, 30);
         arduboy->print(navigator_game_choice_a + String(sizeof(Snaker)));
 
-        arduboy->setCursor(2, 40);
+        arduboy->setCursor(STR_START_X, 40);
         arduboy->print(navigator_game_choice_b);
 
-        arduboy->setCursor(2, 50);
+        arduboy->setCursor(STR_START_X, 50);
         arduboy->print(navigator_game_choice_c);
 
         // game A - Func_snake.
@@ -174,6 +178,18 @@ class Navigator
                 }
             }
         }
+    }
+
+    void draw_square()
+    {
+        arduboy->drawLine(0, 0, WIDTH - BODER_WIDTH, 0, WHITE);
+        arduboy->drawLine(0, 1, WIDTH - BODER_WIDTH, 1, WHITE);
+        arduboy->drawLine(0, 0, 0, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(1, 0, 1, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(WIDTH - BODER_WIDTH, 0, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(WIDTH - BODER_WIDTH - 1, 0, WIDTH - BODER_WIDTH - 1, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(0, HEIGHT - BODER_WIDTH, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(0, HEIGHT - BODER_WIDTH - 1, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH - 1, WHITE);
     }
 };
 #endif // Navigator_hpp
