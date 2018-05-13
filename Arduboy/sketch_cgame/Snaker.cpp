@@ -8,20 +8,11 @@ Snaker::Snaker(uint8_t length) : length(length)
 
     this->status = INACTIVE;
     this->head_drc = RIGHT;
+    this->find_egg = false;
     
     // this->p_for = new Point;
+    this->init_body(length);
 
-    if (length > 0)
-    {
-        Point *p;
-        for (uint8_t i = 0; i < length; i++)
-        {
-            p = new Point;
-            p->x = 5 + i;
-            p->y = 5 + i;
-            this->body_points.push_back(p);
-        }
-    }
 }
 
 Snaker::~Snaker()
@@ -33,6 +24,46 @@ Snaker::~Snaker()
     body_points.clear();
     // delete this->p_for;
     // this->p_for = NULL;
+}
+
+boolean Snaker::init_body(uint8_t length)
+{
+    if (length > 0)
+    {
+        Point *p;
+        for (uint8_t i = 0; i < length; i++)
+        {
+            p = new Point;
+            p->x = 5 + i;
+            p->y = 5 + i;
+            this->body_points.push_back(p);
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+boolean Snaker::reset_body()
+{
+    if (this->body_points.size() > 0)
+    {
+        this->head_drc = RIGHT;
+        Point *p;
+        for (uint8_t i = 0; i < this->body_points.size(); i++)
+        {
+            p = this->body_points[i];
+            p->x = 5 + i;
+            p->y = 5 + i;
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 Status Snaker::get_status()
@@ -205,7 +236,7 @@ boolean Snaker::move(uint8_t step)
         switch (this->head_drc)
         {
         case UP:
-            if (p_head->y > 0)
+            if (p_head->y > 0 + BODER_WIDTH)
             {
                 p_for->x = p_head->x;
                 p_for->y = p_head->y - 1;
@@ -217,7 +248,7 @@ boolean Snaker::move(uint8_t step)
             }
             break;
         case DOWN:
-            if (p_head->y < HEIGHT - 1)
+            if (p_head->y < HEIGHT - 1 - BODER_WIDTH)
             {
                 p_for->x = p_head->x;
                 p_for->y = p_head->y + 1;
@@ -229,7 +260,7 @@ boolean Snaker::move(uint8_t step)
             }
             break;
         case LEFT:
-            if (p_head->x > 0)
+            if (p_head->x > 0 + BODER_WIDTH)
             {
                 p_for->x = p_head->x - 1;
                 p_for->y = p_head->y;
@@ -241,10 +272,17 @@ boolean Snaker::move(uint8_t step)
             }
             break;
         case RIGHT:
-            if (p_head->x < WIDTH - 1)
+            if (p_head->x < WIDTH - 1 - BODER_WIDTH)
             {
                 p_for->x = p_head->x + 1;
                 p_for->y = p_head->y;
+            }
+            // egg.
+            else if (p_head->x == WIDTH - 1 - BODER_WIDTH && p_head->y == BODER_WIDTH)
+            {
+                this->find_egg = true;
+                p_for->x = WIDTH / 2;
+                p_for->y = HEIGHT / 2;
             }
             else
             {
@@ -284,6 +322,16 @@ void Snaker::show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint
     }
 
     // print score. (mem cost approximately).
-    Obj->setCursor(0, 55);
+    Obj->setCursor(2, 55);
     Obj->print(String(this->body_points.size() * sizeof(Point) + sizeof(std::vector<Point*>)));
+}
+
+boolean Snaker::if_find_egg()
+{
+    return this->find_egg;
+}
+
+void Snaker::reset_egg()
+{
+    this->find_egg = false;
 }

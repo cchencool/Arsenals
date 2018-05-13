@@ -9,11 +9,15 @@
 #include "Base_func.hpp"
 #include "Func_settings.hpp"
 
+
 extern Arduboy2 *arduboy;
 extern Btn_ctrl *btn_ctrl;
 extern Base_func *func_settings;
 
-PROGMEM const String pause_str = "Pause.";
+PROGMEM const String pause_str = "Pause";
+PROGMEM const String find_egg_str = "Found Egg!";
+
+uint8_t time_counter = 0;
 
 class Func_snake : public Base_func
 {
@@ -30,7 +34,7 @@ class Func_snake : public Base_func
         // }
         // else
         // {
-        this->snaker = new Snaker(10);
+        this->snaker = new Snaker(INITIAL_SNAKE_LENGTH);
         // }
     }
 
@@ -42,6 +46,7 @@ class Func_snake : public Base_func
 
     void play()
     {
+        draw_square();
 
         if (btn_ctrl->up_click())
         {
@@ -74,12 +79,25 @@ class Func_snake : public Base_func
 
         if (snaker->get_status() == ACTIVE)
         {
-            snaker->move(1);
+            boolean move_result = snaker->move(1);
+            if (!move_result) {
+                snaker->reset_body();
+            }
         }
         else
         {
             arduboy->setCursor(95, 55);
             arduboy->print(pause_str);
+        }
+
+        if (snaker->if_find_egg())
+        {
+            arduboy->setCursor(0, 0);
+            arduboy->print(find_egg_str);
+            if (++time_counter % 15 == 0)
+            {
+                snaker->reset_egg();
+            }
         }
 
         snaker->show(arduboy, &Arduboy2::drawPixel);
@@ -95,6 +113,14 @@ class Func_snake : public Base_func
          * 2018/05/13
          */
         // Base_func::exit(p);
+    }
+
+    void draw_square()
+    {
+        arduboy->drawLine(0, 0, WIDTH - BODER_WIDTH, 0, WHITE);
+        arduboy->drawLine(0, 0, 0, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(WIDTH - BODER_WIDTH, 0, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);
+        arduboy->drawLine(0, HEIGHT - BODER_WIDTH, WIDTH - BODER_WIDTH, HEIGHT - BODER_WIDTH, WHITE);
     }
 };
 

@@ -27,13 +27,8 @@ void setup()
   // put your setup code here, to run once:
 
   arduboy->begin();
-
-  // Serial.begin(9600);
-
-  // while(!Serial)
-  // {
-  //   ;
-  // }
+  // could save code space.
+  // arduboy->boot();
 
   // Serial.print("System, start up...");
 

@@ -7,6 +7,9 @@
 #include <ArduinoSTL.h>
 #include "Arduboy2.h"
 
+#define INITIAL_SNAKE_LENGTH 10
+#define BODER_WIDTH 1
+
 // struct Point
 // {
 //     int x;
@@ -37,10 +40,16 @@ class Snaker
     Status status;
     // Point *p_for;   // temp var to transfer move.
     // boolean rezise(int8_t length);
+    boolean find_egg;
+    boolean init_body(uint8_t length);
 
   public:
     Snaker(uint8_t length);
     ~Snaker();
+
+    boolean if_find_egg();
+    void reset_egg();
+
     Status get_status();
     boolean start();
     boolean stop();
@@ -48,6 +57,7 @@ class Snaker
     // boolean move_one();
     boolean move(uint8_t step);
     boolean grow(uint8_t length);
+    boolean reset_body();
     // boolean shrink(uint8_t length);
     void show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint8_t));
 };
