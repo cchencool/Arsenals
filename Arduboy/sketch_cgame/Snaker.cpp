@@ -48,6 +48,13 @@ boolean Snaker::init_body(uint8_t length)
 
 boolean Snaker::reset_body()
 {
+    for (uint8_t i = 0; i < this->body_points.size(); i++)
+    {
+        delete this->body_points[i];
+    }
+    this->body_points.clear();
+    this->init_body(INITIAL_SNAKE_LENGTH);
+
     if (this->body_points.size() > 0)
     {
         this->head_drc = RIGHT;
@@ -314,6 +321,59 @@ boolean Snaker::move(uint8_t step)
     return has_move;
 }
 
+boolean Snaker::grow()
+{
+    this->length++;
+    Point *tail = this->getTail();
+    Point *new_tail = new Point;
+    
+    switch (this->head_drc)
+    {
+        case UP:
+            new_tail->x = tail->x;
+            new_tail->y = tail->y + 1;
+            break;
+        case DOWN:
+            new_tail->x = tail->x;
+            new_tail->y = tail->y - 1;
+            break;
+        case LEFT:
+            new_tail->x = tail->x + 1;
+            new_tail->y = tail->y;           
+            break;
+        case RIGHT:
+            new_tail->x = tail->x - 1;
+            new_tail->y = tail->y;            
+            break;
+        default:
+            break;
+    }
+    if (new_tail != NULL)
+    {
+        this->body_points.push_back(new_tail);
+        return true;
+    }
+    return false;
+}
+
+Point* Snaker::getHead()
+{
+    if (this->body_points.size() > 0) 
+    {
+        return this->body_points[0];
+    }
+    return NULL;
+}
+
+Point* Snaker::getTail()
+{
+    if (this->body_points.size() > 0) 
+    {
+        return this->body_points[this->body_points.size() - 1];
+    }
+    return NULL;
+}
+
 void Snaker::show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint8_t))
 {
     for (uint8_t i = 0; i < this->body_points.size(); i++)
@@ -323,7 +383,7 @@ void Snaker::show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint
 
     // print score. (mem cost approximately).
     Obj->setCursor(2, 55);
-    Obj->print(String(this->body_points.size() * sizeof(Point) + sizeof(std::vector<Point*>)));
+    Obj->print(String(this->body_points.size()));// * sizeof(Point) + sizeof(std::vector<Point*>)));
 }
 
 boolean Snaker::if_find_egg()

@@ -24,6 +24,8 @@ class Func_snake : public Base_func
 
   private:
     Snaker *snaker; // = new Snaker(10);
+    Point *food_pt;
+    boolean is_eaten = false;
 
   public:
     Func_snake()
@@ -35,6 +37,9 @@ class Func_snake : public Base_func
         // else
         // {
         this->snaker = new Snaker(INITIAL_SNAKE_LENGTH);
+        this->food_pt = new Point;
+        this->food_pt->x = random(126) + 1;
+        this->food_pt->y = random(62) + 1;
         // }
     }
 
@@ -47,6 +52,10 @@ class Func_snake : public Base_func
     void play()
     {
         draw_square();
+
+        draw_food();
+
+        if_eat();
 
         if (btn_ctrl->up_click())
         {
@@ -113,6 +122,39 @@ class Func_snake : public Base_func
          * 2018/05/13
          */
         // Base_func::exit(p);
+    }
+
+    boolean if_eat()
+    {
+        Point *head = this->snaker->getHead();
+        if (head != NULL 
+        && head->x - this->food_pt->x <= 1 
+        && head->x - this->food_pt->x >= 0 
+        && head->y - this->food_pt->y <= 1
+        && head->y - this->food_pt->y >= 0)
+        {
+            this->snaker->grow();
+            is_eaten = true;
+            // delete this->food_pt;
+            // this->food_pt = NULL;
+        }
+    }
+
+    void draw_food()
+    {
+        if (is_eaten)//this->food_pt == NULL) 
+        {
+            // this->food_pt = new Point;
+            this->food_pt->x = random(126) + 1;
+            this->food_pt->y = random(62) + 1;
+            is_eaten = false;
+        }
+
+
+        arduboy->drawPixel(this->food_pt->x, this->food_pt->y, WHITE);
+        arduboy->drawPixel(this->food_pt->x + 1, this->food_pt->y, WHITE);
+        arduboy->drawPixel(this->food_pt->x, this->food_pt->y + 1, WHITE);
+        arduboy->drawPixel(this->food_pt->x + 1, this->food_pt->y + 1 , WHITE);
     }
 
     void draw_square()

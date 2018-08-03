@@ -54,9 +54,14 @@ class Snaker
     boolean start();
     boolean stop();
     boolean turn_to(Direction turn_drc);
+
+    //
+    Point* getHead();
+    Point* getTail();
+
     // boolean move_one();
     boolean move(uint8_t step);
-    boolean grow(uint8_t length);
+    boolean grow();
     boolean reset_body();
     // boolean shrink(uint8_t length);
     void show(Arduboy2 *Obj, void (Arduboy2::*p_call)(int16_t, int16_t, uint8_t));
