@@ -24,7 +24,7 @@ extern boolean is_error;
 // for navigator.
 PROGMEM const String navigator_str = "Please choose: ";
 PROGMEM const String navigator_game_choice_a = "Press Up: snake.";
-PROGMEM const String navigator_game_choice_b = "Press Dn: counter.";
+// PROGMEM const String navigator_game_choice_b = "Press Dn: counter.";
 PROGMEM const String navigator_game_choice_c = "Press  A: settings.";
 
 enum Support_func
@@ -72,18 +72,18 @@ class Navigator
         arduboy->setCursor(STR_START_X, 30);
         arduboy->print(navigator_game_choice_a + String(sizeof(Snaker)));
 
-        arduboy->setCursor(STR_START_X, 40);
-        arduboy->print(navigator_game_choice_b);
+        // arduboy->setCursor(STR_START_X, 40);
+        // arduboy->print(navigator_game_choice_b);
 
-        arduboy->setCursor(STR_START_X, 50);
+        arduboy->setCursor(STR_START_X, 40);//50);
         arduboy->print(navigator_game_choice_c);
 
         // game A - Func_snake.
-        if (btn_ctrl->down_click() && !has_made_choice)
-        {
-            func_choice = COUNTER;
-            has_made_choice = true;
-        }
+        // if (btn_ctrl->down_click() && !has_made_choice)
+        // {
+        //     func_choice = COUNTER;
+        //     has_made_choice = true;
+        // }
 
         // game B - Func_counter
         if (btn_ctrl->up_click() && !has_made_choice)

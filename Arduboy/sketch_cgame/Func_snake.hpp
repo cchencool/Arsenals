@@ -46,7 +46,9 @@ class Func_snake : public Base_func
     ~Func_snake()
     {
         delete snaker;
+        delete food_pt;
         snaker = NULL;
+        food_pt = NULL;
     }
 
     void play()
@@ -78,7 +80,7 @@ class Func_snake : public Base_func
         {
             if (snaker->get_status() == ACTIVE)
             {
-                snaker->stop();
+                snaker->stop(false);
             }
             else if (snaker->get_status() == INACTIVE)
             {
@@ -109,12 +111,13 @@ class Func_snake : public Base_func
             }
         }
 
-        snaker->show(arduboy, &Arduboy2::drawPixel);
+        // snaker->show(arduboy, &Arduboy2::drawPixel);
+        snaker->show(arduboy);
     }
 
     void exit(Base_func **p)
     {
-        this->snaker->stop();
+        this->snaker->stop(false);
         /**
          * if we delete the obj to free mem. it may occur some problem when keep enter func_snake and exit.
          * so far, I think it may cause by the 2.5Kb memory cannot afford such frequent new/delete obj.
@@ -142,11 +145,25 @@ class Func_snake : public Base_func
 
     void draw_food()
     {
-        if (is_eaten)//this->food_pt == NULL) 
+        boolean is_valid = false;
+        while (is_eaten && !is_valid)//this->food_pt == NULL) 
         {
             // this->food_pt = new Point;
             this->food_pt->x = random(126) + 1;
             this->food_pt->y = random(62) + 1;
+
+            // invalid area
+            if (this->food_pt->x > 0
+            && this->food_pt->x < 35//15
+            && this->food_pt->y > 50
+            && this->food_pt->y < 64)
+            {
+                is_valid = false;
+            }
+            else
+            {
+                is_valid = true;
+            }
             is_eaten = false;
         }
 
